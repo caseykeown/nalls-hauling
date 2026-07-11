@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0D0D0C" />
+<title>Nall's Specialized Hauling | Heavy & Oversized Transport — Elizabethtown, KY</title>
+<meta name="description" content="Nall's Specialized Hauling — 100+ power units, 250+ specialized trailers, 48-state authority. Fully licensed and insured heavy and oversized freight out of Elizabethtown, KY. USDOT 738256." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   NALL'S SPECIALIZED HAULING — PREVIEW BUILD
+   Design system tokens (locked to brand direction)
+   ============================================================ */
+:root{
+  --pitch:#0D0D0C;      /* dominant dark        */
+  --carbon:#1A1A19;     /* surfaces / cards     */
+  --carbon-2:#131312;   /* deeper surface       */
+  --blaze:#FB452F;      /* primary accent       */
+  --blaze-deep:#c9331f; /* pressed accent       */
+  --white:#FFFFFF;      /* headers              */
+  --steel:#EBEBEA;      /* body text            */
+  --mute:#8B8B86;       /* metadata / captions  */
+  --line:#2A2A28;       /* hairline border      */
+  --line-2:#3A3A37;     /* stronger hairline    */
+
+  --maxw:1280px;
+  --gutter:clamp(1.25rem, 4vw, 3rem);
+  --sec-pad:clamp(4.5rem, 9vw, 8rem);
+
+  --ff-display:'Oswald', 'Arial Narrow', sans-serif;
+  --ff-body:'Inter', system-ui, sans-serif;
+  --ff-mono:'JetBrains Mono', ui-monospace, monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--pitch);
+  color:var(--steel);
+  font-family:var(--ff-body);
+  font-size:clamp(1rem,0.96rem + 0.2vw,1.075rem);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block; max-width:100%;}
+a{color:inherit; text-decoration:none;}
+:focus-visible{outline:2px solid var(--blaze); outline-offset:3px;}
+
+.wrap{max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter);}
+.sec{padding-block:var(--sec-pad);}
+
+/* Eyebrow / dispatch-style label ---------------------------- */
+.eyebrow{
+  font-family:var(--ff-mono);
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--blaze);
+  display:inline-flex; align-items:center; gap:.6rem;
+  margin:0 0 1.1rem;
+}
+.eyebrow::before{content:""; width:26px; height:2px; background:var(--blaze); display:inline-block;}
+
+/* Headings -------------------------------------------------- */
+h1,h2,h3{font-family:var(--ff-display); text-transform:uppercase; color:var(--white); margin:0; line-height:.98; letter-spacing:.005em;}
+.h-xl{font-weight:700; font-size:clamp(2.9rem, 2rem + 5.4vw, 6.6rem); line-height:.9; letter-spacing:-.01em;}
+.h-lg{font-weight:600; font-size:clamp(2.05rem, 1.4rem + 2.8vw, 3.6rem);}
+.h-md{font-weight:600; font-size:clamp(1.4rem, 1.1rem + 1vw, 1.9rem);}
+.lead{color:var(--steel); max-width:56ch; font-size:clamp(1.05rem,1rem + .35vw,1.22rem); line-height:1.6;}
+.muted{color:var(--mute);}
+
+/* Buttons --------------------------------------------------- */
+.btn{
+  --_bg:var(--blaze); --_fg:var(--white); --_bd:var(--blaze);
+  display:inline-flex; align-items:center; gap:.7rem;
+  font-family:var(--ff-display); font-weight:600; text-transform:uppercase;
+  font-size:1.02rem; letter-spacing:.05em; line-height:1;
+  padding:1.05rem 1.7rem;
+  background:var(--_bg); color:var(--_fg);
+  border:2px solid var(--_bd);
+  cursor:pointer;
+  transition:transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+  will-change:transform;
+}
+.btn svg{width:1.05em; height:1.05em; flex:none;}
+.btn:hover{transform:translateY(-2px); background:var(--blaze-deep); border-color:var(--blaze-deep);}
+.btn:active{transform:translateY(0);}
+.btn--ghost{--_bg:transparent; --_fg:var(--white); --_bd:var(--line-2);}
+.btn--ghost:hover{--_bg:transparent; border-color:var(--white); transform:translateY(-2px);}
+.btn--wide{width:100%; justify-content:center;}
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+.masthead{
+  position:sticky; top:0; z-index:900;
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:background .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+}
+.masthead.is-stuck{
+  background:color-mix(in srgb, var(--pitch) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom-color:var(--line);
+}
+.nav{display:flex; align-items:center; gap:1.5rem; padding-block:.85rem;}
+.brand{display:flex; align-items:center; gap:.7rem; flex:none;}
+.brand img{height:46px; width:auto;}
+.brand b{font-family:var(--ff-display); font-weight:700; color:var(--white); text-transform:uppercase; font-size:1.02rem; letter-spacing:.04em; line-height:1;}
+.brand span{display:block; font-family:var(--ff-mono); font-size:.58rem; letter-spacing:.22em; color:var(--mute); margin-top:.18rem;}
+.brand-txt{display:block;}
+
+.nav-links{display:flex; align-items:center; gap:1.6rem; margin-left:auto;}
+.nav-links a{
+  font-family:var(--ff-mono); font-size:.78rem; font-weight:500; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--steel); position:relative; padding-block:.4rem;
+}
+.nav-links a::after{content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0; background:var(--blaze); transition:width .2s ease;}
+.nav-links a:hover{color:var(--white);}
+.nav-links a:hover::after{width:100%;}
+
+.nav-cta{display:flex; align-items:center; gap:.7rem;}
+.nav-tel{
+  font-family:var(--ff-mono); font-weight:700; color:var(--white); font-size:.9rem; letter-spacing:.04em;
+  display:inline-flex; align-items:center; gap:.5rem; white-space:nowrap;
+}
+.nav-tel svg{width:15px; height:15px; color:var(--blaze);}
+.nav-cta .btn{padding:.72rem 1.15rem; font-size:.86rem;}
+
+.hamburger{display:none; background:transparent; border:1px solid var(--line-2); color:var(--white); width:46px; height:46px; cursor:pointer; align-items:center; justify-content:center;}
+.hamburger svg{width:22px; height:22px;}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative; overflow:hidden; background:var(--pitch);}
+.hero__media{
+  position:absolute; inset:0; z-index:0;
+  background:url("https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/hero-truck.png") no-repeat;
+  background-position:right 62%; background-size:cover;
+}
+.hero__veil{
+  position:absolute; inset:0; z-index:1;
+  background:
+    linear-gradient(90deg, var(--pitch) 0%, var(--pitch) 30%, rgba(13,13,12,.72) 52%, rgba(13,13,12,.15) 82%, rgba(13,13,12,0) 100%),
+    linear-gradient(0deg, var(--pitch) 2%, rgba(13,13,12,.35) 30%, rgba(13,13,12,0) 60%),
+    linear-gradient(180deg, rgba(13,13,12,.55) 0%, rgba(13,13,12,0) 24%);
+}
+.hero__inner{position:relative; z-index:2; padding-block:clamp(5rem,11vw,9.5rem) clamp(2.5rem,5vw,4rem); max-width:70ch;}
+.hero h1{margin:.2rem 0 0;}
+.hero h1 .accent{color:var(--blaze); display:block;}
+.hero .lead{margin:1.8rem 0 2.4rem;}
+.hero__actions{display:flex; flex-wrap:wrap; gap:1rem;}
+
+/* Dispatch status strip (signature) ------------------------- */
+.dispatch{
+  position:relative; z-index:2;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:color-mix(in srgb, var(--carbon) 55%, transparent);
+  backdrop-filter:blur(4px);
+}
+.dispatch__row{
+  display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 2rem;
+  padding-block:.9rem;
+  font-family:var(--ff-mono); font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--mute);
+}
+.dispatch__row b{color:var(--steel); font-weight:500;}
+.dispatch__dot{display:inline-flex; align-items:center; gap:.55rem; color:var(--steel);}
+.dispatch__dot::before{
+  content:""; width:9px; height:9px; background:var(--blaze); border-radius:50%;
+  box-shadow:0 0 0 0 rgba(251,69,47,.7); animation:pulse 2.4s infinite;
+}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(251,69,47,.6);}70%{box-shadow:0 0 0 8px rgba(251,69,47,0);}100%{box-shadow:0 0 0 0 rgba(251,69,47,0);}}
+.dispatch__sep{color:var(--line-2);}
+
+/* ============================================================
+   CAPACITY / INSTRUMENT CLUSTER
+   ============================================================ */
+.capacity{background:linear-gradient(180deg, var(--carbon-2) 0%, var(--pitch) 100%); border-top:1px solid var(--line);}
+.cap-head{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:1.5rem; margin-bottom:3rem;}
+.cap-head p{margin:.4rem 0 0; max-width:46ch;}
+.cluster{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line);
+}
+.stat{
+  background:var(--pitch);
+  padding:clamp(1.6rem,3vw,2.6rem) 1.4rem;
+  display:flex; flex-direction:column; align-items:center; text-align:center; justify-content:center; gap:.55rem;
+  min-height:230px; position:relative;
+  transition:background .2s ease;
+}
+.stat:hover{background:var(--carbon);}
+.stat__mark{height:76px; display:flex; align-items:center; justify-content:center;}
+.stat__mark img{height:76px; width:auto;}
+.stat__num{font-family:var(--ff-display); font-weight:700; font-size:clamp(2.6rem,1.8rem + 2.4vw,3.9rem); line-height:.9; color:var(--blaze);}
+.stat__num[data-numeral]{margin-top:.2rem;}
+.stat__label{font-family:var(--ff-mono); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--steel);}
+.cap-note{
+  margin-top:1.5rem; padding:1rem 1.25rem; border:1px solid var(--line);
+  display:flex; flex-wrap:wrap; gap:.5rem 1.6rem; align-items:center;
+  font-family:var(--ff-mono); font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--mute);
+}
+.cap-note b{color:var(--steel); font-weight:500;}
+.cap-note .k{color:var(--blaze);}
+
+/* ============================================================
+   VALUE PROPS (three brand statements)
+   ============================================================ */
+.props{background:var(--pitch);}
+.props-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;}
+.prop{border-top:2px solid var(--blaze); background:var(--carbon); padding:2.2rem 1.9rem;}
+.prop .n{font-family:var(--ff-mono); font-size:.72rem; letter-spacing:.2em; color:var(--mute); text-transform:uppercase;}
+.prop h3{margin:1rem 0 .8rem; font-size:1.5rem;}
+.prop p{margin:0; color:var(--steel);}
+
+/* ============================================================
+   CAPABILITIES / SERVICES
+   ============================================================ */
+.services{background:linear-gradient(180deg, var(--pitch) 0%, var(--carbon-2) 100%); border-top:1px solid var(--line);}
+.svc-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem;}
+.svc{
+  background:var(--carbon); border:1px solid var(--line);
+  padding:2rem 1.7rem; position:relative;
+  transition:transform .2s ease, border-color .2s ease, background .2s ease;
+}
+.svc::before{content:""; position:absolute; left:0; top:0; height:3px; width:0; background:var(--blaze); transition:width .25s ease;}
+.svc:hover{transform:translateY(-4px); border-color:var(--line-2); background:#1f1f1e;}
+.svc:hover::before{width:100%;}
+.svc img{height:60px; width:auto; margin-bottom:1.3rem;}
+.svc h3{font-size:1.28rem; margin-bottom:.6rem;}
+.svc p{margin:0; font-size:.96rem; color:var(--steel); line-height:1.55;}
+
+/* ============================================================
+   SPECIALIZED SHOWCASE
+   ============================================================ */
+.showcase{position:relative; border-top:1px solid var(--line); overflow:hidden;}
+.showcase__bg{
+  position:absolute; inset:0; z-index:0;
+  background:url("https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nasa-truck.jpg") center/cover no-repeat;
+}
+.showcase__veil{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(90deg, var(--pitch) 8%, rgba(13,13,12,.82) 40%, rgba(13,13,12,.32) 78%, rgba(13,13,12,.55) 100%);
+}
+.showcase__inner{position:relative; z-index:2; max-width:60ch;}
+.showcase h2{margin-bottom:1.4rem;}
+.showcase .lead{margin-bottom:2rem;}
+.spec-list{display:flex; flex-wrap:wrap; gap:.7rem; margin-bottom:2.2rem; padding:0; list-style:none;}
+.spec-list li{
+  font-family:var(--ff-mono); font-size:.76rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--steel); border:1px solid var(--line-2); padding:.55rem .85rem; background:rgba(13,13,12,.5);
+}
+
+/* ============================================================
+   SAFETY / COMPLIANCE
+   ============================================================ */
+.safety{background:var(--carbon-2); border-top:1px solid var(--line);}
+.safety-grid{display:grid; grid-template-columns:1.05fr 1fr; gap:clamp(2rem,5vw,4.5rem); align-items:center;}
+.cred{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+.cred__cell{background:var(--pitch); padding:1.8rem 1.5rem;}
+.cred__cell .k{font-family:var(--ff-mono); font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--mute);}
+.cred__cell .v{font-family:var(--ff-display); text-transform:uppercase; font-weight:600; color:var(--white); font-size:1.5rem; margin-top:.5rem; line-height:1;}
+.cred__cell .v.blaze{color:var(--blaze);}
+.cred__cell a.v:hover{color:var(--blaze);}
+.safety h2{margin-bottom:1.3rem;}
+.safety .lead{margin-bottom:1.7rem;}
+.safety__links{display:flex; flex-wrap:wrap; gap:.9rem;}
+.pill{
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-family:var(--ff-mono); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase;
+  border:1px solid var(--line-2); padding:.7rem 1rem; color:var(--steel);
+  transition:border-color .18s ease, color .18s ease;
+}
+.pill svg{width:15px; height:15px; color:var(--blaze);}
+.pill:hover{border-color:var(--blaze); color:var(--white);}
+
+/* ============================================================
+   TWO-SIDED FUNNEL
+   ============================================================ */
+.funnel{background:var(--pitch); border-top:1px solid var(--line);}
+.funnel-grid{display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;}
+.panel{background:var(--carbon); border:1px solid var(--line); padding:clamp(1.9rem,3vw,2.8rem);}
+.panel--drivers{
+  background:
+    linear-gradient(180deg, rgba(13,13,12,.62), rgba(13,13,12,.92)),
+    url("https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/truck-fleet.jpg") center/cover no-repeat;
+  border-color:var(--line-2);
+  display:flex; flex-direction:column;
+}
+.panel .tag{font-family:var(--ff-mono); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--blaze);}
+.panel h2{font-size:clamp(1.8rem,1.4rem + 1.4vw,2.5rem); margin:.7rem 0 .9rem;}
+.panel p{margin:0 0 1.6rem; color:var(--steel);}
+.panel--drivers .perks{list-style:none; margin:0 0 1.9rem; padding:0; display:grid; gap:.7rem; margin-top:auto;}
+.panel--drivers .perks li{display:flex; gap:.7rem; align-items:flex-start; font-family:var(--ff-mono); font-size:.82rem; letter-spacing:.04em; text-transform:uppercase; color:var(--steel);}
+.panel--drivers .perks svg{width:16px; height:16px; color:var(--blaze); flex:none; margin-top:1px;}
+
+/* Quote form ------------------------------------------------ */
+.form{display:grid; gap:1.1rem;}
+.field{display:flex; flex-direction:column; gap:.45rem;}
+.field label{font-family:var(--ff-mono); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--mute);}
+.field label .req{color:var(--blaze);}
+.field input, .field select, .field textarea{
+  font-family:var(--ff-body); font-size:.98rem; color:var(--white);
+  background:var(--pitch); border:1px solid var(--line-2); padding:.85rem .9rem; width:100%;
+  transition:border-color .16s ease;
+}
+.field input::placeholder, .field textarea::placeholder{color:#5f5f5b;}
+.field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--blaze);}
+.field textarea{resize:vertical; min-height:96px;}
+.field-row{display:grid; grid-template-columns:1fr 1fr; gap:1.1rem;}
+.field .err{display:none; font-family:var(--ff-mono); font-size:.68rem; letter-spacing:.06em; color:var(--blaze); text-transform:uppercase;}
+.field.invalid input, .field.invalid select, .field.invalid textarea{border-color:var(--blaze);}
+.field.invalid .err{display:block;}
+.form__note{font-family:var(--ff-mono); font-size:.68rem; letter-spacing:.06em; color:var(--mute); text-transform:uppercase; margin-top:-.2rem;}
+.form-success{
+  display:none; border:1px solid var(--blaze); background:rgba(251,69,47,.06);
+  padding:2rem 1.7rem; text-align:left;
+}
+.form-success.show{display:block;}
+.form-success h3{color:var(--white); font-size:1.4rem; margin-bottom:.6rem;}
+.form-success p{color:var(--steel); margin:0;}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{background:var(--carbon-2); border-top:1px solid var(--line); padding-block:clamp(3.5rem,6vw,5rem) 2.2rem;}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:clamp(2rem,5vw,4rem); margin-bottom:3rem;}
+.footer .brand img{height:60px;}
+.footer h4{font-family:var(--ff-mono); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--mute); margin:0 0 1.2rem;}
+.footer address{font-style:normal; color:var(--steel); line-height:1.9;}
+.footer address b{color:var(--white); font-family:var(--ff-display); text-transform:uppercase; letter-spacing:.02em; font-size:1.15rem; display:block; margin-bottom:.6rem;}
+.footer a:hover{color:var(--blaze);}
+.foot-links{display:flex; flex-direction:column; gap:.7rem;}
+.foot-links a{font-family:var(--ff-mono); font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; color:var(--steel);}
+.socials{display:flex; gap:.7rem; margin-top:1.4rem;}
+.socials a{width:42px; height:42px; border:1px solid var(--line-2); display:flex; align-items:center; justify-content:center; transition:border-color .18s ease, background .18s ease;}
+.socials a:hover{border-color:var(--blaze); background:var(--carbon);}
+.socials svg{width:18px; height:18px; color:var(--steel);}
+.footer-base{border-top:1px solid var(--line); padding-top:1.8rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; font-family:var(--ff-mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--mute);}
+.footer-base .k{color:var(--blaze);}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1; transform:none;}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1080px){
+  .svc-grid{grid-template-columns:repeat(2,1fr);}
+  .cluster{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:900px){
+  .nav-links, .nav-tel{display:none;}
+  .hamburger{display:inline-flex;}
+  .nav-cta .btn.js-quote{display:none;}
+  .props-grid{grid-template-columns:1fr;}
+  .safety-grid{grid-template-columns:1fr; gap:2.4rem;}
+  .funnel-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .hero__media{background-position:right -40px bottom; background-size:150%;}
+  .hero__veil{background:
+    linear-gradient(180deg, rgba(13,13,12,.55) 0%, rgba(13,13,12,.3) 35%, var(--pitch) 78%),
+    linear-gradient(90deg, var(--pitch) 0%, rgba(13,13,12,.4) 60%, rgba(13,13,12,.15) 100%);}
+}
+@media (max-width:560px){
+  .cluster{grid-template-columns:1fr;}
+  .svc-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .field-row{grid-template-columns:1fr;}
+  .hero__actions .btn{width:100%; justify-content:center;}
+}
+
+/* Mobile drawer */
+.drawer{position:fixed; inset:0; z-index:1000; background:var(--pitch); transform:translateX(100%); transition:transform .3s ease; display:flex; flex-direction:column; padding:1.5rem var(--gutter);}
+.drawer.open{transform:none;}
+.drawer__top{display:flex; justify-content:space-between; align-items:center; margin-bottom:2.5rem;}
+.drawer__close{background:transparent; border:1px solid var(--line-2); color:var(--white); width:46px; height:46px; cursor:pointer;}
+.drawer a.d-link{font-family:var(--ff-display); text-transform:uppercase; font-size:1.9rem; font-weight:600; color:var(--white); padding-block:.7rem; border-bottom:1px solid var(--line);}
+.drawer a.d-link:hover{color:var(--blaze);}
+.drawer__cta{margin-top:auto; display:grid; gap:.9rem; padding-top:2rem;}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important;}
+  .reveal{opacity:1; transform:none;}
+}
+</style>
+</head>
+
+<body>
+
+<a href="#capabilities" class="btn" style="position:absolute; left:-9999px; top:0;" onfocus="this.style.left='1rem';this.style.top='1rem';this.style.zIndex='2000';" onblur="this.style.left='-9999px'">Skip to content</a>
+
+<!-- ============================================================
+     MASTHEAD
+     ============================================================ -->
+<header class="masthead" id="masthead">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Nall's Specialized Hauling home">
+        <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-orange-logo-transparentbg.png" alt="Nall's Specialized Hauling emblem" />
+        <span class="brand-txt">
+          <b>Nall's Specialized Hauling</b>
+          <span>Elizabethtown, KY · USDOT 738256</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#specialized">Specialized</a>
+        <a href="#safety">Safety</a>
+        <a href="#drivers">Drivers</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-cta">
+        <a class="nav-tel" href="tel:+12703600070">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          270-360-0070
+        </a>
+        <a class="btn js-quote" href="#contact">Request a Quote</a>
+        <a class="btn btn--ghost" href="https://intelliapp.driverapponline.com/c/spechaul?uri_b=ia_spechaul_117779524" target="_blank" rel="noopener">Apply to Drive</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer__top">
+    <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-orange-logo-transparentbg.png" alt="" style="height:44px;" />
+    <button class="drawer__close" id="drawerClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+    </button>
+  </div>
+  <a class="d-link" href="#capabilities">Capabilities</a>
+  <a class="d-link" href="#specialized">Specialized</a>
+  <a class="d-link" href="#safety">Safety</a>
+  <a class="d-link" href="#drivers">Drivers</a>
+  <a class="d-link" href="#contact">Contact</a>
+  <div class="drawer__cta">
+    <a class="btn btn--wide" href="#contact">Request a Quote</a>
+    <a class="btn btn--ghost btn--wide" href="https://intelliapp.driverapponline.com/c/spechaul?uri_b=ia_spechaul_117779524" target="_blank" rel="noopener">Apply to Drive</a>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="hero__media" role="img" aria-label="Nall's Specialized Hauling power unit"></div>
+    <div class="hero__veil"></div>
+    <div class="wrap">
+      <div class="hero__inner">
+        <p class="eyebrow">Specialized · Oversized · 48-State Authority</p>
+        <h1 class="h-xl" id="hero-h">In it for<br>the <span class="accent">long haul.</span></h1>
+        <p class="lead">More than a decade moving heavy, oversized, and high-value freight across all 48 states. One hundred power units, two hundred fifty specialized trailers, and a driver bench built to run whatever the load demands.</p>
+        <div class="hero__actions">
+          <a class="btn js-quote" href="#contact">
+            Request a Hauling Quote
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="https://intelliapp.driverapponline.com/c/spechaul?uri_b=ia_spechaul_117779524" target="_blank" rel="noopener">Apply to Drive</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dispatch status strip (signature element) -->
+  <div class="dispatch">
+    <div class="wrap">
+      <div class="dispatch__row">
+        <span class="dispatch__dot">Operational</span>
+        <span class="dispatch__sep">/</span>
+        <span><b>USDOT</b> 738256</span>
+        <span class="dispatch__sep">/</span>
+        <span><b>Authority</b> 48 States</span>
+        <span class="dispatch__sep">/</span>
+        <span><b>Base</b> Elizabethtown, KY</span>
+        <span class="dispatch__sep">/</span>
+        <span><b>Status</b> Fully Licensed &amp; Insured</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CAPACITY / INSTRUMENT CLUSTER
+       ============================================================ -->
+  <section class="sec capacity" id="capabilities" aria-labelledby="cap-h">
+    <div class="wrap">
+      <div class="cap-head reveal">
+        <div>
+          <p class="eyebrow">Equipped for the job</p>
+          <h2 class="h-lg" id="cap-h">Scale that clears<br>the load.</h2>
+        </div>
+        <p class="muted">With one hundred power units and two hundred fifty trailers at our disposal, we are ready for just about any job on the board.</p>
+      </div>
+
+      <div class="cluster reveal">
+        <div class="stat">
+          <div class="stat__mark"><img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/svg%20icons/Number-of-Tractors.svg" alt="Tractor" loading="lazy" /></div>
+          <div class="stat__num" data-count="100" data-prefix="&gt;">&gt;0</div>
+          <div class="stat__label">Power Units</div>
+        </div>
+        <div class="stat">
+          <div class="stat__mark"><img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/svg%20icons/Number-of-Trailers.svg" alt="Trailer" loading="lazy" /></div>
+          <div class="stat__num" data-count="250" data-prefix="&gt;">&gt;0</div>
+          <div class="stat__label">Specialized Trailers</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num" data-numeral data-count="10" data-suffix="+">0+</div>
+          <div class="stat__label">Years Over-the-Road</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num" data-numeral data-count="48">0</div>
+          <div class="stat__label">State Operating Authority</div>
+        </div>
+      </div>
+
+      <div class="cap-note reveal">
+        <span class="k">Fleet Profile</span>
+        <span><b>Dry Van</b> · <b>Reefer</b> · <b>Flatbed / Step-Deck</b> · <b>Heavy &amp; Oversized</b></span>
+        <span><b>150,000+ lbs</b> permitted capacity on qualifying loads</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       VALUE PROPS
+       ============================================================ -->
+  <section class="sec props" aria-label="Why Nall's">
+    <div class="wrap">
+      <div class="props-grid">
+        <article class="prop reveal">
+          <span class="n">01 / Experience</span>
+          <h3>In It for the Long Haul</h3>
+          <p>Trust a team with more than a decade of long-distance trucking behind it. Rely on us to move your cargo, lane after lane.</p>
+        </article>
+        <article class="prop reveal">
+          <span class="n">02 / Capacity</span>
+          <h3>Equipped for the Job</h3>
+          <p>One hundred power units and two hundred fifty trailers on hand mean we are ready for just about any job you put in front of us.</p>
+        </article>
+        <article class="prop reveal">
+          <span class="n">03 / Protection</span>
+          <h3>Protect Your Freight</h3>
+          <p>Do not leave your cargo to chance. Choose a fully licensed and insured team with a great safety record standing behind every mile.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CAPABILITIES / SERVICES
+       ============================================================ -->
+  <section class="sec services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="cap-head reveal" style="margin-bottom:2.6rem;">
+        <div>
+          <p class="eyebrow">Capabilities</p>
+          <h2 class="h-lg" id="svc-h">Freight we move,<br>end to end.</h2>
+        </div>
+        <p class="muted">From dedicated lanes to port drayage and temperature-controlled loads, the fleet is built to handle the full spread of specialized transport.</p>
+      </div>
+
+      <div class="svc-grid">
+        <article class="svc reveal">
+          <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/svg%20icons/Dedicated.svg" alt="" loading="lazy" />
+          <h3>Dedicated</h3>
+          <p>Committed capacity and consistent lanes for shippers who need the same equipment and drivers running every week.</p>
+        </article>
+        <article class="svc reveal">
+          <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/svg%20icons/Dry-Van.svg" alt="" loading="lazy" />
+          <h3>Dry Van</h3>
+          <p>Standard enclosed freight across all 48 states, from single pallets to full truckload volume.</p>
+        </article>
+        <article class="svc reveal">
+          <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/svg%20icons/Temp-Controlled.svg" alt="" loading="lazy" />
+          <h3>Temp-Controlled</h3>
+          <p>Reefer capacity with monitored set points for perishable and temperature-sensitive product.</p>
+        </article>
+        <article class="svc reveal">
+          <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/svg%20icons/Expedited.svg" alt="" loading="lazy" />
+          <h3>Expedited</h3>
+          <p>Time-critical loads dispatched fast, with direct routing and team drivers when the clock rules the lane.</p>
+        </article>
+        <article class="svc reveal">
+          <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/svg%20icons/Port.svg" alt="" loading="lazy" />
+          <h3>Port / Drayage</h3>
+          <p>Container pickup and delivery coordinated to terminal windows and appointment schedules.</p>
+        </article>
+        <article class="svc reveal">
+          <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/svg%20icons/Logistics.svg" alt="" loading="lazy" />
+          <h3>Logistics</h3>
+          <p>Brokerage and load planning that keeps freight moving even when it falls outside our own trailers.</p>
+        </article>
+        <article class="svc reveal">
+          <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/svg%20icons/Warehousing.svg" alt="" loading="lazy" />
+          <h3>Warehousing</h3>
+          <p>Short- and long-term storage plus cross-dock staging between legs of the move.</p>
+        </article>
+        <article class="svc reveal" style="display:flex; flex-direction:column; justify-content:center; background:var(--blaze); border-color:var(--blaze);">
+          <h3 style="color:#0D0D0C; font-size:1.5rem;">Have an oversized load?</h3>
+          <p style="color:#0D0D0C; font-weight:500;">Tell us the dimensions and the lane. We will spec the trailer and the permits.</p>
+          <a href="#contact" style="margin-top:1.2rem; font-family:var(--ff-mono); font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#0D0D0C; font-size:.82rem;">Request a quote →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SPECIALIZED SHOWCASE
+       ============================================================ -->
+  <section class="sec showcase" id="specialized" aria-labelledby="show-h">
+    <div class="showcase__bg" role="img" aria-label="Oversized specialized load in transit"></div>
+    <div class="showcase__veil"></div>
+    <div class="wrap">
+      <div class="showcase__inner reveal">
+        <p class="eyebrow">Heavy &amp; Oversized</p>
+        <h2 class="h-lg" id="show-h">When standard<br>won't cut it.</h2>
+        <p class="lead">Aerospace components, industrial equipment, and dimensional freight that other carriers turn away. We build the plan around the load: routing, permits, escorts, and the right trailer under it.</p>
+        <ul class="spec-list">
+          <li>Route Surveys</li>
+          <li>Permit Coordination</li>
+          <li>Pilot / Escort</li>
+          <li>Multi-Axle Configurations</li>
+          <li>Project &amp; Heavy Haul</li>
+        </ul>
+        <a class="btn" href="#contact">
+          Talk to Dispatch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SAFETY / COMPLIANCE
+       ============================================================ -->
+  <section class="sec safety" id="safety" aria-labelledby="safe-h">
+    <div class="wrap">
+      <div class="safety-grid">
+        <div class="reveal">
+          <p class="eyebrow">Protect yourself</p>
+          <h2 class="h-lg" id="safe-h">Compliance you can verify.</h2>
+          <p class="lead">Do not leave anything to chance with your cargo. Every load runs behind a fully licensed and insured operation with a great safety record and current federal authority you can check yourself.</p>
+          <div class="safety__links">
+            <a class="pill" href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=738256" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              FMCSA Carrier Snapshot
+            </a>
+            <a class="pill" href="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/NallsTruckingSafetyManual.pdf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Safety Manual (PDF)
+            </a>
+          </div>
+        </div>
+
+        <div class="cred reveal">
+          <div class="cred__cell">
+            <div class="k">USDOT Number</div>
+            <a class="v blaze" href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=738256" target="_blank" rel="noopener">738256</a>
+          </div>
+          <div class="cred__cell">
+            <div class="k">Insurance</div>
+            <div class="v">Fully Covered</div>
+          </div>
+          <div class="cred__cell">
+            <div class="k">Operating Authority</div>
+            <div class="v">48 States</div>
+          </div>
+          <div class="cred__cell">
+            <div class="k">Safety Record</div>
+            <div class="v">Great Standing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TWO-SIDED FUNNEL
+       ============================================================ -->
+  <section class="sec funnel" id="contact" aria-labelledby="funnel-h">
+    <div class="wrap">
+      <p class="eyebrow reveal">Two ways to move</p>
+      <h2 class="h-lg reveal" id="funnel-h" style="margin-bottom:2.6rem;">Book freight or<br>get behind the wheel.</h2>
+
+      <div class="funnel-grid">
+        <!-- SHIPPERS -->
+        <div class="panel reveal">
+          <span class="tag">Shippers</span>
+          <h2>Request a Hauling Quote</h2>
+          <p>Send the lane and the load. Dispatch responds with equipment, timing, and a rate.</p>
+
+          <form class="form" id="quoteForm" novalidate>
+            <div class="field-row">
+              <div class="field" style="gap:.45rem;">
+                <label for="q-name">Name <span class="req">*</span></label>
+                <input id="q-name" name="name" type="text" placeholder="Full name" required />
+                <span class="err">Enter your name.</span>
+              </div>
+              <div class="field" style="gap:.45rem;">
+                <label for="q-company">Company</label>
+                <input id="q-company" name="company" type="text" placeholder="Company name" />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field" style="gap:.45rem;">
+                <label for="q-email">Email <span class="req">*</span></label>
+                <input id="q-email" name="email" type="email" placeholder="you@company.com" required />
+                <span class="err">Enter a valid email.</span>
+              </div>
+              <div class="field" style="gap:.45rem;">
+                <label for="q-phone">Phone <span class="req">*</span></label>
+                <input id="q-phone" name="phone" type="tel" placeholder="(270) 000-0000" required />
+                <span class="err">Enter a valid phone number.</span>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field" style="gap:.45rem;">
+                <label for="q-origin">Origin <span class="req">*</span></label>
+                <input id="q-origin" name="origin" type="text" placeholder="City, ST" required />
+                <span class="err">Enter an origin.</span>
+              </div>
+              <div class="field" style="gap:.45rem;">
+                <label for="q-dest">Destination <span class="req">*</span></label>
+                <input id="q-dest" name="destination" type="text" placeholder="City, ST" required />
+                <span class="err">Enter a destination.</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="q-type">Freight Type <span class="req">*</span></label>
+              <select id="q-type" name="freight" required>
+                <option value="" disabled selected>Select equipment</option>
+                <option>Dry Van</option>
+                <option>Temperature-Controlled</option>
+                <option>Flatbed / Step-Deck</option>
+                <option>Heavy / Oversized</option>
+                <option>Port / Drayage</option>
+                <option>Not sure — advise me</option>
+              </select>
+              <span class="err">Select a freight type.</span>
+            </div>
+
+            <div class="field">
+              <label for="q-notes">Load Details</label>
+              <textarea id="q-notes" name="notes" placeholder="Weight, dimensions, pickup window, special handling…"></textarea>
+            </div>
+
+            <button class="btn btn--wide" type="submit">Submit Quote Request</button>
+            <p class="form__note">Preview form — validates in-browser. On launch this routes to dispatch by email or CRM.</p>
+          </form>
+
+          <div class="form-success" id="quoteSuccess" role="status" aria-live="polite">
+            <h3>Request received.</h3>
+            <p>Thanks — dispatch has your lane. In the live build this fires straight to the Nall's team. For anything urgent, call <a href="tel:+12703600070" style="color:var(--blaze); font-weight:600;">270-360-0070</a>.</p>
+          </div>
+        </div>
+
+        <!-- DRIVERS -->
+        <div class="panel panel--drivers reveal">
+          <span class="tag">Drivers</span>
+          <h2>Apply to Drive</h2>
+          <p>Miles, home time, and equipment worth staying for. We are hiring experienced commercial drivers now.</p>
+          <ul class="perks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> 48-state runs with steady freight</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Late-model, well-maintained equipment</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Mobile application, minutes to start</li>
+          </ul>
+          <a class="btn btn--wide" href="https://intelliapp.driverapponline.com/c/spechaul?uri_b=ia_spechaul_117779524" target="_blank" rel="noopener">
+            Start Your Application
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:1.4rem;">
+          <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-orange-logo-transparentbg.png" alt="Nall's Specialized Hauling" />
+        </a>
+        <address>
+          <b>Nall's Specialized Hauling</b>
+          4880 Bardstown Road<br>
+          Elizabethtown, KY 42701<br><br>
+          Phone <a href="tel:+12703600070">270-360-0070</a><br>
+          Toll Free <a href="tel:+18885207388">888-520-7388</a><br>
+          Fax 270-360-9923
+        </address>
+        <div class="socials">
+          <a href="https://www.facebook.com/nallsspecializedhauling/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://x.com/nallstrucking" target="_blank" rel="noopener" aria-label="X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.4 8.4L23 22h-6.9l-5.4-7-6.2 7H1.4l7.9-9L1 2h7l4.9 6.5L18.9 2zm-2.4 18h1.9L7.6 4H5.6l10.9 16z"/></svg>
+          </a>
+          <a href="https://share.google/Bbhe8llOSVt1dWU9E" target="_blank" rel="noopener" aria-label="Google Business Profile">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 11v2.8h4a4 4 0 1 1-1.2-4.6l2.1-2.1A7 7 0 1 0 19 12c0-.3 0-.7-.1-1z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Navigate</h4>
+        <div class="foot-links">
+          <a href="#capabilities">Capabilities</a>
+          <a href="#specialized">Specialized Haul</a>
+          <a href="#safety">Safety &amp; Compliance</a>
+          <a href="#contact">Request a Quote</a>
+          <a href="https://www.nallsspecializedhauling.com/" target="_blank" rel="noopener">Current Website</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Compliance</h4>
+        <div class="foot-links">
+          <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=738256" target="_blank" rel="noopener">USDOT 738256 Snapshot</a>
+          <a href="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/NallsTruckingSafetyManual.pdf" target="_blank" rel="noopener">Safety Manual</a>
+          <a href="https://intelliapp.driverapponline.com/c/spechaul?uri_b=ia_spechaul_117779524" target="_blank" rel="noopener">Driver Application</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-base">
+      <span>© <span id="yr"></span> Nall's Specialized Hauling · All rights reserved</span>
+      <span><span class="k">USDOT</span> 738256 · Elizabethtown, KY · 48-State Authority</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     PREVIEW WATERMARK
+     Delete this single block (the div below) to remove it entirely.
+     It is self-contained: styles live inside the div and it is
+     pointer-events:none, so it never blocks clicks.
+     ============================================================ -->
+<div id="preview-watermark" aria-hidden="true">
+  <style>
+    #preview-watermark{
+      position:fixed; inset:0; z-index:2147483000; pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22560%22%20height%3D%22300%22%3E%3Ctext%20x%3D%2220%22%20y%3D%22170%22%20transform%3D%22rotate%28-27%20280%20150%29%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2221%22%20font-weight%3D%22700%22%20letter-spacing%3D%223%22%20fill%3D%22rgba%28251%2C69%2C47%2C0.10%29%22%3ECASEY%20KEOWN%26%23160%3B%26%23160%3B%7C%26%23160%3B%26%23160%3BCUSTOM%20WEB%20ARCHITECTURE%3C%2Ftext%3E%3C%2Fsvg%3E");
+      background-repeat:repeat;
+    }
+    #preview-watermark .pw-chip{
+      position:fixed; right:14px; bottom:14px; pointer-events:none;
+      font:700 11px/1 'JetBrains Mono', monospace; letter-spacing:.1em;
+      color:#0D0D0C; background:#FB452F; padding:9px 13px; text-transform:uppercase;
+      box-shadow:0 6px 22px rgba(0,0,0,.55);
+    }
+  </style>
+  <div class="pw-chip">Casey Keown · Custom Web Architecture · Preview</div>
+</div>
+<!-- ===================== END PREVIEW WATERMARK ===================== -->
+
+<script>
+(function(){
+  "use strict";
+
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Sticky header state
+  var mast = document.getElementById('masthead');
+  var onScroll = function(){ mast.classList.toggle('is-stuck', window.scrollY > 12); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Mobile drawer
+  var drawer = document.getElementById('drawer');
+  var openBtn = document.getElementById('hamburger');
+  var closeBtn = document.getElementById('drawerClose');
+  var setDrawer = function(open){
+    drawer.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  openBtn.addEventListener('click', function(){ setDrawer(true); });
+  closeBtn.addEventListener('click', function(){ setDrawer(false); });
+  drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setDrawer(false); }); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setDrawer(false); });
+
+  // Reveal on scroll
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var ro = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); ro.unobserve(en.target); }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+    reveals.forEach(function(el){ ro.observe(el); });
+  }
+
+  // Count-up
+  var counters = document.querySelectorAll('[data-count]');
+  var runCount = function(el){
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    if(reduce){ el.textContent = prefix + target + suffix; return; }
+    var dur = 1400, start = null;
+    var step = function(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(eased * target) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  if('IntersectionObserver' in window){
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ runCount(en.target); co.unobserve(en.target); }
+      });
+    }, {threshold:0.5});
+    counters.forEach(function(el){ co.observe(el); });
+  } else {
+    counters.forEach(runCount);
+  }
+
+  // Quote form validation
+  var form = document.getElementById('quoteForm');
+  var success = document.getElementById('quoteSuccess');
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var phoneRe = /[0-9]{7,}/;
+
+  var validateField = function(field){
+    var input = field.querySelector('input, select, textarea');
+    if(!input || !input.hasAttribute('required')) return true;
+    var val = (input.value || '').trim();
+    var ok = val.length > 0;
+    if(ok && input.type === 'email') ok = emailRe.test(val);
+    if(ok && input.type === 'tel') ok = phoneRe.test(val.replace(/\D/g,''));
+    field.classList.toggle('invalid', !ok);
+    return ok;
+  };
+
+  form.querySelectorAll('.field').forEach(function(field){
+    var input = field.querySelector('input, select, textarea');
+    if(!input) return;
+    input.addEventListener('blur', function(){ validateField(field); });
+    input.addEventListener('input', function(){ if(field.classList.contains('invalid')) validateField(field); });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var fields = form.querySelectorAll('.field');
+    var allOk = true;
+    var firstBad = null;
+    fields.forEach(function(field){
+      if(field.querySelector('input, select, textarea')){
+        var ok = validateField(field);
+        if(!ok && !firstBad){ firstBad = field.querySelector('input, select, textarea'); }
+        if(!ok) allOk = false;
+      }
+    });
+    if(!allOk){ if(firstBad) firstBad.focus(); return; }
+    form.style.display = 'none';
+    success.classList.add('show');
+    success.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+  });
+})();
+</script>
+</body>
+</html>
