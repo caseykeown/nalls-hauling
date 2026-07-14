@@ -177,9 +177,8 @@ h1,h2,h3{font-family:var(--ff-display); text-transform:uppercase; color:var(--wh
 .dispatch__dot{display:inline-flex; align-items:center; gap:.55rem; color:var(--steel);}
 .dispatch__dot::before{
   content:""; width:9px; height:9px; background:var(--blaze); border-radius:50%;
-  box-shadow:0 0 0 0 rgba(251,69,47,.7); animation:pulse 2.4s infinite;
+  box-shadow:none;
 }
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(251,69,47,.6);}70%{box-shadow:0 0 0 8px rgba(251,69,47,0);}100%{box-shadow:0 0 0 0 rgba(251,69,47,0);}}
 .dispatch__sep{color:var(--line-2);}
 
 /* ============================================================
@@ -418,11 +417,12 @@ h1,h2,h3{font-family:var(--ff-display); text-transform:uppercase; color:var(--wh
       </a>
 
       <div class="nav-links">
-        <a href="#capabilities">Capabilities</a>
-        <a href="#specialized">Specialized</a>
-        <a href="#safety">Safety</a>
-        <a href="#drivers">Drivers</a>
-        <a href="#contact">Contact</a>
+        <a href="#top">Home</a>
+        <a href="About/index.html">About</a>
+        <a href="Shop/index.html">Shop</a>
+        <a href="Safety/index.html">Safety</a>
+        <a href="Specialized/index.html">Specialized</a>
+        <a href="Staff/index.html">Staff</a>
       </div>
 
       <div class="nav-cta">
@@ -431,7 +431,7 @@ h1,h2,h3{font-family:var(--ff-display); text-transform:uppercase; color:var(--wh
           270-360-0070
         </a>
         <a class="btn js-quote" href="#contact">Request a Quote</a>
-        <a class="btn btn--ghost" href="https://intelliapp.driverapponline.com/c/spechaul?uri_b=ia_spechaul_117779524" target="_blank" rel="noopener">Apply to Drive</a>
+        <a class="btn btn--ghost" href="https://intelliapp.driverapponline.com/c/spechaul?uri_b=ia_spechaul_1768228738" target="_blank" rel="noopener">Drive For Nall's</a>
       </div>
 
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
@@ -488,7 +488,7 @@ h1,h2,h3{font-family:var(--ff-display); text-transform:uppercase; color:var(--wh
   <div class="dispatch">
     <div class="wrap">
       <div class="dispatch__row">
-        <span class="dispatch__dot">Operational</span>
+        <span>Operational</span>
         <span class="dispatch__sep">/</span>
         <span><b>USDOT</b> 738256</span>
         <span class="dispatch__sep">/</span>
@@ -857,30 +857,6 @@ h1,h2,h3{font-family:var(--ff-display); text-transform:uppercase; color:var(--wh
     </div>
   </div>
 </footer>
-
-<!-- ============================================================
-     PREVIEW WATERMARK
-     Delete this single block (the div below) to remove it entirely.
-     It is self-contained: styles live inside the div and it is
-     pointer-events:none, so it never blocks clicks.
-     ============================================================ -->
-<div id="preview-watermark" aria-hidden="true">
-  <style>
-    #preview-watermark{
-      position:fixed; inset:0; z-index:2147483000; pointer-events:none;
-      background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22560%22%20height%3D%22300%22%3E%3Ctext%20x%3D%2220%22%20y%3D%22170%22%20transform%3D%22rotate%28-27%20280%20150%29%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2221%22%20font-weight%3D%22700%22%20letter-spacing%3D%223%22%20fill%3D%22rgba%28251%2C69%2C47%2C0.10%29%22%3ECASEY%20KEOWN%26%23160%3B%26%23160%3B%7C%26%23160%3B%26%23160%3BCUSTOM%20WEB%20ARCHITECTURE%3C%2Ftext%3E%3C%2Fsvg%3E");
-      background-repeat:repeat;
-    }
-    #preview-watermark .pw-chip{
-      position:fixed; right:14px; bottom:14px; pointer-events:none;
-      font:700 11px/1 'JetBrains Mono', monospace; letter-spacing:.1em;
-      color:#0D0D0C; background:#FB452F; padding:9px 13px; text-transform:uppercase;
-      box-shadow:0 6px 22px rgba(0,0,0,.55);
-    }
-  </style>
-  <div class="pw-chip">Casey Keown · Custom Web Architecture · Preview</div>
-</div>
-<!-- ===================== END PREVIEW WATERMARK ===================== -->
 
 <script>
 (function(){
