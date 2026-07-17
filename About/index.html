@@ -957,7 +957,26 @@
         <div class="socials">
             <a href="https://www.facebook.com/nallsspecializedhauling/" target="_blank" rel="noopener" class="social-link" aria-label="Nall's Specialized Hauling on Facebook">f</a>
         </div>
-        <p style="margin-top: 30px; color: var(--gray);">&copy; 1996&ndash;2026 Nall's Specialized Hauling, Inc. | USDOT 738256 | All Rights Reserved | Website by <mailto:>me@caseykeown.com</mailto:></p>
+        <p style="margin-top: 30px; color: var(--gray);">&copy; 1996&ndash;2026 Nall's Specialized Hauling, Inc. | USDOT 738256 | All Rights Reserved</p>
     </footer>
+
+    <!-- PREVIEW WATERMARK - DELETE ENTIRE BLOCK TO REMOVE -->
+    <div id="preview-watermark">
+        Casey Keown<br>Custom Web Architecture<br><a href="https://caseykeown.com" target="_blank" rel="noopener">caseykeown.com</a><br>PREVIEW
+    </div>
+
+    <script>
+        (function () {
+            var header = document.querySelector('header');
+            if (!header) return;
+            function setHeaderHeight() {
+                document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+            }
+            setHeaderHeight();
+            window.addEventListener('resize', setHeaderHeight);
+            window.addEventListener('load', setHeaderHeight);
+            if ('ResizeObserver' in window) new ResizeObserver(setHeaderHeight).observe(header);
+        }());
+    </script>
 </body>
 </html>
