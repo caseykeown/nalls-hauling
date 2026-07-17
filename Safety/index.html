@@ -82,13 +82,20 @@
         }
 
         header .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
             text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        header .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            header .logo img { height: 34px; }
         }
 
         header nav {
@@ -172,7 +179,7 @@
 
         /* STATIC IMAGE HERO (no video) */
         .page-hero {
-            margin-top: 60px;
+            margin-top: var(--header-h, 64px);
             position: relative;
             min-height: 420px;
             display: flex;
@@ -223,7 +230,7 @@
         }
 
         @media (max-width: 768px) {
-            .page-hero { margin-top: 118px; min-height: 320px; }
+            .page-hero { min-height: 320px; }
             .page-hero h1 { font-size: 40px; letter-spacing: 1px; }
             .page-hero-inner { padding: 50px 20px; }
         }
@@ -703,7 +710,10 @@
 
     <!-- STICKY HEADER -->
     <header>
-        <a href="../Home/" class="logo">NSH</a>
+        <a href="../Home/" class="logo" aria-label="Nall's Specialized Hauling home">
+            <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-logo-header.png"
+                 srcset="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-logo-header.png 1x, https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-logo-header@2x.png 2x" alt="Nall's Specialized Hauling">
+        </a>
         <nav aria-label="Primary">
             <a href="../Home/">Home</a>
             <a href="../About/">About</a>
@@ -937,5 +947,25 @@
         </div>
         <p style="margin-top: 30px; color: var(--gray);">&copy; 1996&ndash;2026 Nall's Specialized Hauling, Inc. | USDOT 738256 | All Rights Reserved</p>
     </footer>
+
+    <!-- PREVIEW WATERMARK - DELETE ENTIRE BLOCK TO REMOVE -->
+    <div id="preview-watermark">
+        Casey Keown<br>Custom Web Architecture<br><a href="https://caseykeown.com" target="_blank" rel="noopener">caseykeown.com</a><br>PREVIEW
+    </div>
+
+    <script>
+        // Header wraps at narrow widths; measure it so hero offset never drifts.
+        (function () {
+            var header = document.querySelector('header');
+            if (!header) return;
+            function setHeaderHeight() {
+                document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+            }
+            setHeaderHeight();
+            window.addEventListener('resize', setHeaderHeight);
+            window.addEventListener('load', setHeaderHeight);
+            if ('ResizeObserver' in window) new ResizeObserver(setHeaderHeight).observe(header);
+        })();
+    </script>
 </body>
 </html>
