@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nall's Specialized Hauling | Premier Heavy Haul & Specialized Transport</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -16,6 +18,7 @@
             --silver: #C7C7C7;
             --gray: #8D8D8D;
             --dark-gray: #4F4F4F;
+            --header-h: 72px;
         }
 
         * {
@@ -46,80 +49,118 @@
             }
         }
 
-        /* STICKY HEADER */
+        /* ============ STICKY HEADER ============ */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            height: var(--header-h);
             background: var(--charcoal);
             border-bottom: 3px solid var(--red);
             z-index: 1000;
-            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 24px;
+            padding: 0 28px;
         }
 
-        header .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        header nav {
+        .brand {
             display: flex;
-            gap: 30px;
             align-items: center;
-            flex: 1;
-            margin-left: 40px;
+            flex-shrink: 0;
         }
 
-        header nav a {
+        .brand img {
+            display: block;
+            height: 46px;
+            width: auto;
+        }
+
+        .primary-nav {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+            margin-left: 12px;
+            margin-right: auto;
+        }
+
+        .primary-nav a {
+            position: relative;
             color: var(--off-white);
             text-decoration: none;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
+            letter-spacing: 1px;
+            padding: 6px 0;
+            transition: color 0.25s;
         }
 
-        header nav a:hover {
-            color: var(--red);
+        .primary-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--red);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.25s ease;
+        }
+
+        .primary-nav a:hover,
+        .primary-nav a:focus-visible {
+            color: var(--white);
+        }
+
+        .primary-nav a:hover::after,
+        .primary-nav a:focus-visible::after,
+        .primary-nav a[aria-current="page"]::after {
+            transform: scaleX(1);
+        }
+
+        .primary-nav a[aria-current="page"] {
+            color: var(--white);
         }
 
         .header-right {
             display: flex;
-            gap: 20px;
+            gap: 18px;
             align-items: center;
-            margin-left: auto;
+            flex-shrink: 0;
         }
 
         .tel-link {
-            color: var(--red);
+            color: var(--off-white);
             text-decoration: none;
             font-weight: 600;
             font-size: 13px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            transition: color 0.25s;
+        }
+
+        .tel-link:hover,
+        .tel-link:focus-visible {
+            color: var(--red);
         }
 
         .cta-btn {
             background: var(--red);
             color: var(--white);
-            padding: 10px 16px;
+            padding: 11px 18px;
             text-decoration: none;
             font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
             border: 2px solid var(--red);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: background 0.25s, color 0.25s;
             letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         .cta-btn:hover {
@@ -138,32 +179,181 @@
             color: var(--white);
         }
 
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 12px 15px;
-                gap: 12px;
+        .cta-btn:focus-visible,
+        .primary-nav a:focus-visible,
+        .tel-link:focus-visible,
+        .brand:focus-visible {
+            outline: 2px solid var(--white);
+            outline-offset: 3px;
+        }
+
+        /* ---- Hamburger toggle ---- */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            width: 48px;
+            height: 48px;
+            padding: 12px 10px;
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .nav-toggle .bar {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: var(--white);
+            transition: transform 0.3s ease, opacity 0.2s ease;
+        }
+
+        .nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+            background: var(--red);
+        }
+
+        .nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+            background: var(--red);
+        }
+
+        .nav-toggle:focus-visible {
+            outline: 2px solid var(--white);
+            outline-offset: 2px;
+        }
+
+        /* ---- Mobile drawer ---- */
+        .mobile-drawer {
+            position: fixed;
+            top: var(--header-h);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--black);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 28px 36px;
+            transform: translateX(100%);
+            visibility: hidden;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.35s;
+            overflow-y: auto;
+        }
+
+        .mobile-drawer.open {
+            transform: translateX(0);
+            visibility: visible;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .drawer-nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .drawer-nav a {
+            font-family: 'Oswald', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--off-white);
+            text-decoration: none;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--charcoal);
+            opacity: 0;
+            transform: translateX(24px);
+            transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s;
+        }
+
+        .mobile-drawer.open .drawer-nav a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mobile-drawer.open .drawer-nav a:nth-child(1) { transition-delay: 0.05s; }
+        .mobile-drawer.open .drawer-nav a:nth-child(2) { transition-delay: 0.1s; }
+        .mobile-drawer.open .drawer-nav a:nth-child(3) { transition-delay: 0.15s; }
+        .mobile-drawer.open .drawer-nav a:nth-child(4) { transition-delay: 0.2s; }
+        .mobile-drawer.open .drawer-nav a:nth-child(5) { transition-delay: 0.25s; }
+
+        .drawer-nav a:hover,
+        .drawer-nav a:focus-visible {
+            color: var(--red);
+        }
+
+        .drawer-nav a[aria-current="page"] {
+            color: var(--red);
+            border-bottom-color: var(--red);
+        }
+
+        .drawer-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding-top: 32px;
+        }
+
+        .drawer-footer .cta-btn {
+            text-align: center;
+            padding: 16px;
+            font-size: 14px;
+        }
+
+        .drawer-footer .tel-link {
+            text-align: center;
+            font-size: 17px;
+            padding: 8px;
+            color: var(--silver);
+        }
+
+        body.nav-open {
+            overflow: hidden;
+        }
+
+        /* ---- Header collapse ---- */
+        @media (max-width: 1160px) {
+            .primary-nav,
+            .header-right .cta-btn {
+                display: none;
             }
-            header nav {
-                margin-left: 0;
-                gap: 15px;
-                width: 100%;
-                font-size: 11px;
+            .nav-toggle {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-h: 64px;
+            }
+            header {
+                padding: 0 16px;
+            }
+            .brand img {
+                height: 38px;
             }
             .header-right {
-                width: 100%;
-                justify-content: space-between;
-                margin-left: 0;
+                gap: 8px;
             }
-            .cta-btn {
-                padding: 8px 12px;
-                font-size: 11px;
+        }
+
+        @media (max-width: 420px) {
+            .header-right .tel-link {
+                display: none;
             }
         }
 
         /* HERO WITH VIDEO */
         .hero {
-            margin-top: 60px;
+            margin-top: var(--header-h);
             position: relative;
             height: 600px;
             display: flex;
@@ -182,10 +372,28 @@
             z-index: 1;
         }
 
+        .video-container {
+            overflow: hidden;
+        }
+
         .video-container iframe {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            height: 56.25vw;      /* 16:9 of viewport width */
+            min-height: 600px;    /* never shorter than the hero */
+            min-width: 1067px;    /* 16:9 of hero height */
+            border: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .video-container iframe {
+                min-height: 480px;
+                min-width: 854px;
+            }
         }
 
         .video_overlay {
@@ -207,7 +415,7 @@
 
         .hero h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: 72px;
+            font-size: clamp(40px, 7.5vw, 72px);
             font-weight: 700;
             color: var(--white);
             text-transform: uppercase;
@@ -245,11 +453,9 @@
 
         @media (max-width: 768px) {
             .hero {
-                height: 450px;
-                margin-top: 100px;
+                height: 480px;
             }
             .hero h1 {
-                font-size: 48px;
                 letter-spacing: 2px;
             }
             .hero p {
@@ -257,6 +463,15 @@
             }
             .hero-ctas {
                 gap: 12px;
+            }
+            .hero-ctas .cta-btn {
+                padding: 14px 20px;
+                font-size: 13px;
+            }
+            .dispatch-status {
+                font-size: 11px;
+                letter-spacing: 1px;
+                line-height: 1.8;
             }
         }
 
@@ -951,20 +1166,42 @@
 <body>
     <!-- STICKY HEADER -->
     <header>
-        <div class="logo">NSH</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#specialized">Specialized</a>
-            <a href="#drive">Drive for Us</a>
+        <a href="../Home/" class="brand" aria-label="Nall's Specialized Hauling — Home">
+            <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/refs/heads/main/assets/images/transparent-logo.png" alt="Nall's Specialized Hauling">
+        </a>
+        <nav class="primary-nav" aria-label="Primary">
+            <a href="../Home/" aria-current="page">Home</a>
+            <a href="../Safety/">Safety</a>
+            <a href="../Shop/">Shop</a>
+            <a href="../Specialized/">Specialized</a>
+            <a href="../Staff/">Staff</a>
         </nav>
         <div class="header-right">
             <a href="tel:2703600070" class="tel-link">270-360-0070</a>
             <a href="#quote" class="cta-btn">Request Quote</a>
-            <a href="#drive" class="cta-btn cta-btn-outline">Apply Now</a>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Open menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </header>
+
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <nav class="drawer-nav" aria-label="Mobile">
+            <a href="../Home/" aria-current="page">Home</a>
+            <a href="../Safety/">Safety</a>
+            <a href="../Shop/">Shop</a>
+            <a href="../Specialized/">Specialized</a>
+            <a href="../Staff/">Staff</a>
+        </nav>
+        <div class="drawer-footer">
+            <a href="#quote" class="cta-btn">Request a Hauling Quote</a>
+            <a href="#drive" class="cta-btn cta-btn-outline">Apply to Drive</a>
+            <a href="tel:2703600070" class="tel-link">270-360-0070</a>
+        </div>
+    </div>
 
     <!-- HERO WITH VIDEO -->
     <section class="hero" id="home">
@@ -1219,7 +1456,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
+    <footer id="quote">
         <div class="footer-grid">
             <div>
                 <h4>Nall's Specialized Hauling</h4>
@@ -1263,6 +1500,36 @@
         });
 
         capacityItems.forEach(item => capacityObserver.observe(item));
+
+        // Mobile drawer
+        const navToggle = document.querySelector('.nav-toggle');
+        const drawer = document.getElementById('mobile-drawer');
+
+        function setDrawer(open) {
+            drawer.classList.toggle('open', open);
+            document.body.classList.toggle('nav-open', open);
+            navToggle.setAttribute('aria-expanded', String(open));
+            navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        }
+
+        navToggle.addEventListener('click', () => {
+            setDrawer(!drawer.classList.contains('open'));
+        });
+
+        drawer.addEventListener('click', (e) => {
+            if (e.target.closest('a')) setDrawer(false);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && drawer.classList.contains('open')) {
+                setDrawer(false);
+                navToggle.focus();
+            }
+        });
+
+        window.matchMedia('(min-width: 1161px)').addEventListener('change', (e) => {
+            if (e.matches) setDrawer(false);
+        });
     </script>
 </body>
 </html>
