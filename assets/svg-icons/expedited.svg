@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Expedited delivery</title>
+  <desc id="desc">A priority delivery truck with motion lines and a lightning bolt.</desc>
+  <circle cx="50" cy="50" r="49" fill="#C80A0C"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 38h36v28H26z"/>
+    <path d="M62 47h11l8 9v10H62z"/>
+    <path d="M69 48v9h11M77 61h4"/>
+    <path d="M19 66h8M14 58h12M19 50h7" stroke="#C7C7C7"/>
+    <path d="M47 43l-7 11h7l-4 9 12-14h-7l4-6z" stroke="#C7C7C7"/>
+    <circle cx="35" cy="69" r="5"/>
+    <circle cx="72" cy="69" r="5"/>
+    <circle cx="35" cy="69" r="1.5" fill="#C7C7C7" stroke="none"/>
+    <circle cx="72" cy="69" r="1.5" fill="#C7C7C7" stroke="none"/>
+  </g>
+</svg>

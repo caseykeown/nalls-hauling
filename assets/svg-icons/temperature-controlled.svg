@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Temperature controlled</title>
+  <desc id="desc">A climate-controlled reefer trailer marked with a snowflake.</desc>
+  <circle cx="50" cy="50" r="49" fill="#C80A0C"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="10" y="36" width="55" height="30" rx="1"/>
+    <path d="M65 48h10l9 9v9H65zM73 49v9h10M79 62h5M15 66h70"/>
+    <path d="M16 40h8v13h-8zM18 44h4M18 48h4" stroke="#C7C7C7"/>
+    <g stroke="#C7C7C7">
+      <path d="M45 43v17M38 47l14 9M38 56l14-9"/>
+      <path d="M45 43l-2 3m2-3 2 3M45 60l-2-3m2 3 2-3M38 47l4 .2m-4-.2 1.6 3.5M52 56l-4-.2m4 .2-1.6-3.5"/>
+    </g>
+    <circle cx="24" cy="69" r="5"/>
+    <circle cx="35" cy="69" r="5"/>
+    <circle cx="75" cy="69" r="5"/>
+    <circle cx="24" cy="69" r="1.5" fill="#C7C7C7" stroke="none"/>
+    <circle cx="35" cy="69" r="1.5" fill="#C7C7C7" stroke="none"/>
+    <circle cx="75" cy="69" r="1.5" fill="#C7C7C7" stroke="none"/>
+  </g>
+</svg>
