@@ -78,13 +78,20 @@
         }
 
         header .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
             text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        header .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            header .logo img { height: 34px; }
         }
 
         header nav {
@@ -162,7 +169,7 @@
 
         /* HERO — NASA PHOTO, STATIC */
         .page-hero {
-            margin-top: 60px;
+            margin-top: var(--header-h, 64px);
             position: relative;
             min-height: 620px;
             display: flex;
@@ -219,7 +226,7 @@
         .hero-actions .cta-btn { padding: 14px 26px; }
 
         @media (max-width: 768px) {
-            .page-hero { margin-top: 118px; min-height: 500px; }
+            .page-hero { min-height: 500px; }
             .page-hero h1 { font-size: 46px; letter-spacing: 1px; }
             .page-hero-inner { padding: 0 20px 50px; }
         }
@@ -335,17 +342,30 @@
         /* CAPABILITY GRID */
         .capability-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2px;
             background: var(--dark-gray);
             border: 1px solid var(--dark-gray);
         }
 
+        @media (max-width: 980px) {
+            .capability-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 620px) {
+            .capability-grid { grid-template-columns: 1fr; }
+        }
+
         .capability-card {
             background: var(--black);
-            padding: 40px 32px;
+            padding: 48px 34px;
             transition: background 0.3s;
             position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .capability-card:hover { background: var(--charcoal); }
@@ -353,7 +373,9 @@
         .capability-card::after {
             content: '';
             position: absolute;
-            bottom: 0; left: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0; height: 3px;
             background: var(--red);
             transition: width 0.35s ease;
@@ -361,13 +383,11 @@
 
         .capability-card:hover::after { width: 100%; }
 
-        .capability-index {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--red);
-            letter-spacing: 2px;
-            display: block;
-            margin-bottom: 18px;
+        .capability-rule {
+            width: 34px;
+            height: 3px;
+            background: var(--red);
+            margin-bottom: 20px;
         }
 
         .capability-card h3 {
@@ -384,6 +404,7 @@
             font-size: 13px;
             color: var(--gray);
             line-height: 1.75;
+            max-width: 290px;
         }
 
         /* EQUIPMENT ROWS */
@@ -679,7 +700,10 @@
 
     <!-- HEADER -->
     <header>
-        <a href="../Home/" class="logo">NSH</a>
+        <a href="../Home/" class="logo" aria-label="Nall's Specialized Hauling home">
+            <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-logo-header.png"
+                 srcset="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-logo-header.png 1x, https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-logo-header@2x.png 2x" alt="Nall's Specialized Hauling">
+        </a>
         <nav aria-label="Primary">
             <a href="../Home/">Home</a>
             <a href="../About/">About</a>
@@ -735,32 +759,32 @@
 
                 <div class="capability-grid">
                     <div class="capability-card">
-                        <span class="capability-index">01</span>
+                        <span class="capability-rule" aria-hidden="true"></span>
                         <h3>Heavy Haul</h3>
                         <p>Loads that exceed standard weight limits and require engineered trailer configurations, axle distribution, and route analysis before a wheel turns.</p>
                     </div>
                     <div class="capability-card">
-                        <span class="capability-index">02</span>
+                        <span class="capability-rule" aria-hidden="true"></span>
                         <h3>Oversized &amp; Over-Dimensional</h3>
                         <p>Freight that breaks legal width, height, or length. We handle the permit work, the survey, and the routing so the load clears every bridge, wire, and turn on the way.</p>
                     </div>
                     <div class="capability-card">
-                        <span class="capability-index">03</span>
+                        <span class="capability-rule" aria-hidden="true"></span>
                         <h3>Critical &amp; High-Value</h3>
                         <p>Equipment where a scratch is a six-figure problem. Dedicated units, direct routing, and drivers who understand that the delivery window matters less than the condition on arrival.</p>
                     </div>
                     <div class="capability-card">
-                        <span class="capability-index">04</span>
+                        <span class="capability-rule" aria-hidden="true"></span>
                         <h3>Permit &amp; Route Planning</h3>
                         <p>State-by-state permitting, restricted travel windows, and route surveys handled in-house. You get one point of contact instead of a permit service and a carrier pointing at each other.</p>
                     </div>
                     <div class="capability-card">
-                        <span class="capability-index">05</span>
+                        <span class="capability-rule" aria-hidden="true"></span>
                         <h3>Licensed Pilot Escort</h3>
                         <p>Certified escort vehicles and licensed pilots coordinated with the move, not subcontracted at the last minute and hoped for.</p>
                     </div>
                     <div class="capability-card">
-                        <span class="capability-index">06</span>
+                        <span class="capability-rule" aria-hidden="true"></span>
                         <h3>Rigging &amp; Securement</h3>
                         <p>Chains, straps, blocking, and custom securement matched to the load. Every oversized move gets a securement plan before it gets a dispatch.</p>
                     </div>
@@ -905,5 +929,20 @@
     <div id="preview-watermark">
         Casey Keown<br>Custom Web Architecture<br><a href="https://caseykeown.com" target="_blank" rel="noopener">caseykeown.com</a><br>PREVIEW
     </div>
+
+    <script>
+        // Header wraps at narrow widths; measure it so hero offset never drifts.
+        (function () {
+            var header = document.querySelector('header');
+            if (!header) return;
+            function setHeaderHeight() {
+                document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+            }
+            setHeaderHeight();
+            window.addEventListener('resize', setHeaderHeight);
+            window.addEventListener('load', setHeaderHeight);
+            if ('ResizeObserver' in window) new ResizeObserver(setHeaderHeight).observe(header);
+        })();
+    </script>
 </body>
 </html>
