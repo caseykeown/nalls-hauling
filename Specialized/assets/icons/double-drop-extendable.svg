@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Double drop extendable trailer</title>
+  <desc id="desc">A long multi-axle double drop trailer with a lowered well and an oversized industrial load.</desc>
+  <circle cx="50" cy="50" r="49" fill="#C80A0C"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 54h16l5 7h38l5-7h16"/>
+    <path d="M10 49h19l5 7h32l5-7h19" opacity=".72"/>
+    <path d="M38 56V35h23v21"/>
+    <path d="M42 35v-6h15v6M43 43h13M43 49h13"/>
+    <path d="M38 56l5-13m18 13-5-13" stroke="#C7C7C7"/>
+    <path d="M34 66h32M38 63l-4 3 4 3m24-6 4 3-4 3" stroke="#C7C7C7"/>
+    <circle cx="19" cy="66" r="5"/>
+    <circle cx="29" cy="66" r="5"/>
+    <circle cx="71" cy="66" r="5"/>
+    <circle cx="81" cy="66" r="5"/>
+    <circle cx="19" cy="66" r="1.5" fill="#C7C7C7" stroke="none"/>
+    <circle cx="29" cy="66" r="1.5" fill="#C7C7C7" stroke="none"/>
+    <circle cx="71" cy="66" r="1.5" fill="#C7C7C7" stroke="none"/>
+    <circle cx="81" cy="66" r="1.5" fill="#C7C7C7" stroke="none"/>
+  </g>
+</svg>

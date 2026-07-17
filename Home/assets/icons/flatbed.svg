@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Flatbed</title>
+  <desc id="desc">A tractor pulling an open flatbed trailer loaded with secured steel beams.</desc>
+  <circle cx="50" cy="50" r="49" fill="#C80A0C"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 61h55V48h10l9 9v9H65M73 49v9h10M79 62h5"/>
+    <path d="M12 56h47M12 51h47M18 45h39M21 45v11M50 45v11" stroke="#C7C7C7"/>
+    <path d="M10 61v5h75"/>
+    <circle cx="23" cy="69" r="5"/>
+    <circle cx="34" cy="69" r="5"/>
+    <circle cx="75" cy="69" r="5"/>
+    <circle cx="23" cy="69" r="1.5" fill="#C7C7C7" stroke="none"/>
+    <circle cx="34" cy="69" r="1.5" fill="#C7C7C7" stroke="none"/>
+    <circle cx="75" cy="69" r="1.5" fill="#C7C7C7" stroke="none"/>
+  </g>
+</svg>

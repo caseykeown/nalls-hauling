@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Expedited specialized hauling</title>
+  <desc id="desc">A specialized tractor trailer in motion with a priority lightning symbol.</desc>
+  <circle cx="50" cy="50" r="49" fill="#C80A0C"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 60h9l3-22h29v22h7V48h12l9 10v7h-7"/>
+    <path d="M63 48V38h9l8 10M66 41h5l5 7H66z"/>
+    <path d="M31 43h20M30 49h21M29 55h22" opacity=".72"/>
+    <circle cx="35" cy="66" r="6"/>
+    <circle cx="70" cy="66" r="6"/>
+    <circle cx="35" cy="66" r="1.7" fill="#C7C7C7" stroke="none"/>
+    <circle cx="70" cy="66" r="1.7" fill="#C7C7C7" stroke="none"/>
+    <path d="M10 36h10M8 43h10M7 50h9" stroke="#C7C7C7"/>
+    <path d="M48 25l-6 10h6l-3 8 11-13h-6l3-5z" fill="#FFFFFF" stroke="none"/>
+  </g>
+</svg>

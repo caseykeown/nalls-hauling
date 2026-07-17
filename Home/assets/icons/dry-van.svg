@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Dry van</title>
+  <desc id="desc">A tractor pulling a 53-foot enclosed dry van trailer.</desc>
+  <circle cx="50" cy="50" r="49" fill="#C80A0C"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="10" y="36" width="55" height="30" rx="1"/>
+    <path d="M65 48h10l9 9v9H65zM73 49v9h10M79 62h5"/>
+    <path d="M16 42h43M16 48h43" stroke="#C7C7C7" opacity=".85"/>
+    <path d="M15 66h70"/>
+    <circle cx="24" cy="69" r="5"/>
+    <circle cx="35" cy="69" r="5"/>
+    <circle cx="75" cy="69" r="5"/>
+    <circle cx="24" cy="69" r="1.5" fill="#C7C7C7" stroke="none"/>
+    <circle cx="35" cy="69" r="1.5" fill="#C7C7C7" stroke="none"/>
+    <circle cx="75" cy="69" r="1.5" fill="#C7C7C7" stroke="none"/>
+  </g>
+</svg>

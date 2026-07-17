@@ -64,13 +64,13 @@
         }
 
         header .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            text-decoration: none;
         }
+
+        header .logo img { display: block; width: auto; height: 40px; }
 
         header nav {
             display: flex;
@@ -458,7 +458,7 @@
         /* SPECIALIZED SHOWCASE */
         .specialized {
             background: linear-gradient(rgba(9, 8, 8, 0.7), rgba(9, 8, 8, 0.7)),
-                        url('https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/nasa-truck.jpg') center/cover no-repeat;
+                        url('assets/images/nasa-truck.jpg') center/cover no-repeat;
             padding: 100px 20px;
             text-align: center;
             color: var(--white);
@@ -904,26 +904,6 @@
             border-color: var(--red);
         }
 
-        /* PREVIEW WATERMARK */
-        #preview-watermark {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--red);
-            color: var(--white);
-            padding: 12px 16px;
-            font-size: 11px;
-            font-weight: 600;
-            border-radius: 3px;
-            z-index: 999;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        #preview-watermark a {
-            color: var(--white);
-            text-decoration: none;
-        }
 
         @media (max-width: 768px) {
             .bonus-badge {
@@ -951,18 +931,21 @@
 <body>
     <!-- STICKY HEADER -->
     <header>
-        <div class="logo">NSH</div>
+        <a href="../Home/" class="logo" aria-label="Nall's Specialized Hauling home">
+            <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/refs/heads/main/assets/images/transparent-logo.png" alt="Nall's Specialized Hauling">
+        </a>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#specialized">Specialized</a>
-            <a href="#drive">Drive for Us</a>
+            <a href="../Home/">Home</a>
+            <a href="../About/">About</a>
+            <a href="../Safety/">Safety</a>
+            <a href="./" aria-current="page">Shop</a>
+            <a href="../Specialized/">Specialized</a>
+            <a href="../Staff/">Staff</a>
         </nav>
         <div class="header-right">
             <a href="tel:2703600070" class="tel-link">270-360-0070</a>
-            <a href="#quote" class="cta-btn">Request Quote</a>
-            <a href="#drive" class="cta-btn cta-btn-outline">Apply Now</a>
+            <a href="../Home/#quote" class="cta-btn">Request Quote</a>
+            <a href="../Home/#drive" class="cta-btn cta-btn-outline">Apply Now</a>
         </div>
     </header>
 
@@ -1266,13 +1249,8 @@
             <a href="https://x.com/nallstrucking" target="_blank" class="social-link">𝕏</a>
             <a href="https://share.google.com" target="_blank" class="social-link">G</a>
         </div>
-        <p style="margin-top: 30px; color: var(--gray);">© 1996–2026 Nall's Specialized Hauling, Inc. | USDOT 738256 | All Rights Reserved</p>
+        <p style="margin-top: 30px; color: var(--gray);">© 1996–2026 Nall's Specialized Hauling, Inc. | USDOT 738256 | All Rights Reserved | Website by <a href="mailto:me@caseykeown.com">me@caseykeown.com</a></p>
     </footer>
-
-    <!-- PREVIEW WATERMARK - DELETE ENTIRE BLOCK TO REMOVE -->
-    <div id="preview-watermark">
-        Casey Keown<br>Custom Web Architecture<br><a href="https://caseykeown.com" target="_blank">caseykeown.com</a><br>PREVIEW
-    </div>
 
     <script>
         // IntersectionObserver for capacity counters

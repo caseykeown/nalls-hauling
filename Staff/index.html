@@ -417,24 +417,6 @@
             text-decoration: none;
         }
 
-        /* PREVIEW WATERMARK - DELETE ENTIRE BLOCK TO REMOVE */
-        #preview-watermark {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--red);
-            color: var(--white);
-            padding: 12px 16px;
-            font-size: 11px;
-            font-weight: 600;
-            border-radius: 3px;
-            z-index: 999;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        #preview-watermark a { color: var(--white); text-decoration: none; }
-
         @media (max-width: 900px) {
             .staff-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .footer-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -465,8 +447,7 @@
 
     <header>
         <a href="../Home/" class="logo" aria-label="Nall's Specialized Hauling home">
-            <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-logo-header.png"
-                 srcset="https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-logo-header.png 1x, https://raw.githubusercontent.com/caseykeown/nalls-hauling/main/assets/images/nsh-logo-header@2x.png 2x"
+            <img src="https://raw.githubusercontent.com/caseykeown/nalls-hauling/refs/heads/main/assets/images/transparent-logo.png"
                  alt="Nall's Specialized Hauling">
         </a>
         <nav aria-label="Primary">
@@ -616,13 +597,8 @@
         <div class="socials">
             <a href="https://www.facebook.com/nallsspecializedhauling/" target="_blank" rel="noopener" class="social-link" aria-label="Nall's Specialized Hauling on Facebook">f</a>
         </div>
-        <p style="margin-top: 30px; color: var(--gray);">&copy; 1996&ndash;2026 Nall's Specialized Hauling, Inc. | USDOT 738256 | All Rights Reserved</p>
+        <p style="margin-top: 30px; color: var(--gray);">&copy; 1996&ndash;2026 Nall's Specialized Hauling, Inc. | USDOT 738256 | All Rights Reserved | Website by <a href="mailto:me@caseykeown.com">me@caseykeown.com</a></p>
     </footer>
-
-    <!-- PREVIEW WATERMARK - DELETE ENTIRE BLOCK TO REMOVE -->
-    <div id="preview-watermark">
-        Casey Keown<br>Custom Web Architecture<br><a href="https://caseykeown.com" target="_blank" rel="noopener">caseykeown.com</a><br>PREVIEW
-    </div>
 
     <script>
         (function () {
