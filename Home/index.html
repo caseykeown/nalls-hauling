@@ -1377,38 +1377,59 @@
             transition: all 0.3s;
             border-radius: 2px;
         }
+<ul class="services-grid">
 
-        .social-link:hover {
-            background: var(--red);
-            color: var(--white);
-            border-color: var(--red);
-        }
+            <!-- FLAGSHIP -->
+            <li class="service-card service-card--featured">
+                <img class="service-icon"
+                     src="assets/icons/specialized-haul.svg"
+                     alt=""
+                     aria-hidden="true"
+                     width="76" height="76" loading="lazy" decoding="async">
+                <div class="service-card__body">
+                    <span class="service-eyebrow">Flagship Capability</span>
+                    <h3>Specialized Haul</h3>
+                    <p>Heavy, oversized, and critical-load transport backed by licensed pilot cars, custom rigging, and permitted routing. The loads most carriers turn down.</p>
+                </div>
+                <a class="service-card__cta" href="#quote">Get a Specialized Quote</a>
+            </li>
 
-        @media (max-width: 768px) {
-            .bonus-badge {
-                transform: rotate(0deg);
-            }
-            .driver-tagline {
-                font-size: 28px;
-            }
-            .driver-subheading {
-                font-size: 16px;
-            }
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .requirements-split {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .apply-methods {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="../assets/site-nav.css">
-</head>
-<body>
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/expedited.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
+                <h3>Expedited</h3>
+                <p>Rush deliveries for time-sensitive loads requiring priority handling.</p>
+            </li>
+
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/dry-van.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
+                <h3>Dry Van</h3>
+                <p>53-foot enclosed trailers for general freight and protected cargo.</p>
+            </li>
+
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/temperature-controlled.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
+                <h3>Temperature Controlled</h3>
+                <p>Climate-controlled reefer trailers for perishable goods.</p>
+            </li>
+
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/flatbed.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
+                <h3>Flatbed</h3>
+                <p>Open deck trailers for construction materials, steel, and oversized cargo.</p>
+            </li>
+
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/step-deck.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
+                <h3>Step Deck</h3>
+                <p>Drop-deck trailers for tall equipment and specialized freight.</p>
+            </li>
+
+        </ul>
     <!-- STICKY HEADER -->
         <header class="site-header">
         <a href="../Home/" class="site-brand" aria-label="Nall's Specialized Hauling home">
