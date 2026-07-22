@@ -709,51 +709,192 @@
             letter-spacing: 2px;
         }
 
+        /* ============================================
+           SERVICES / WHAT WE HAUL
+           ============================================ */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 20px;
+            max-width: 1240px;
             margin: 0 auto;
+            padding: 0;
+            list-style: none;
         }
 
+        /* ---- Base card: 5 across on the second row ---- */
         .service-card {
+            grid-column: span 2;
             background: var(--charcoal);
-            padding: 30px;
-            text-align: center;
             border: 1px solid var(--dark-gray);
-            transition: all 0.3s;
+            padding: 34px 22px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             position: relative;
+            isolation: isolate;
+            transition: border-color .25s ease,
+                        transform .25s ease,
+                        box-shadow .25s ease;
         }
 
-        .service-card:hover {
+        /* Red rule that wipes in on hover */
+        .service-card::before {
+            content: "";
+            position: absolute;
+            inset: -1px -1px auto -1px;
+            height: 3px;
+            background: var(--red);
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform .3s ease;
+        }
+
+        .service-card:hover,
+        .service-card:focus-within {
             border-color: var(--red);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(200, 10, 12, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 18px 45px rgba(200, 10, 12, .22);
+        }
+
+        .service-card:hover::before,
+        .service-card:focus-within::before {
+            transform: scaleX(1);
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             margin: 0 auto 20px;
-            opacity: 0.8;
+            opacity: .85;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+
+        .service-card:hover .service-icon {
+            opacity: 1;
+            transform: scale(1.06);
         }
 
         .service-card h3 {
             font-family: 'Oswald', sans-serif;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             color: var(--white);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
+            letter-spacing: 1.4px;
+            line-height: 1.25;
+            margin: 0 0 12px;
+            /* Locks 1-line and 2-line headings to the same baseline
+               so "Temperature Controlled" stops shoving its body copy down */
+            min-height: 2.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .service-card p {
-            font-size: 12px;
+            font-size: 12.5px;
+            line-height: 1.6;
             color: var(--gray);
-            line-height: 1.5;
+            margin: 0 auto;
+            max-width: 26ch;
         }
+
+        /* ---- Flagship band: Specialized Haul ---- */
+        .service-card--featured {
+            grid-column: span 10;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 34px;
+            text-align: left;
+            padding: 32px 40px;
+            background:
+                linear-gradient(90deg,
+                    rgba(200, 10, 12, .16) 0%,
+                    rgba(200, 10, 12, 0) 58%),
+                var(--charcoal);
+        }
+
+        .service-card--featured::after {
+            content: "";
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            bottom: -1px;
+            width: 4px;
+            background: var(--red);
+        }
+
+        .service-card--featured .service-icon {
+            width: 76px;
+            height: 76px;
+            margin: 0;
+            opacity: 1;
+        }
+
+        .service-eyebrow {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 6px;
+        }
+
+        .service-card--featured h3 {
+            display: block;
+            min-height: 0;
+            font-size: 24px;
+            letter-spacing: 2.5px;
+            margin: 0 0 8px;
+        }
+
+        .service-card--featured p {
+            font-size: 14px;
+            color: var(--silver);
+            max-width: 64ch;
+            margin: 0;
+        }
+
+        .service-card__cta {
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--red);
+            border: 2px solid var(--red);
+            padding: 14px 26px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background .25s ease, color .25s ease;
+        }
+
+        .service-card__cta:hover,
+        .service-card__cta:focus-visible {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        /* ---- Breakpoints: 3x2, then 2x3, then 1x6 ---- */
+        @media (max-width: 1180px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+
+            .service-card,
+            .service-card--featured { grid-column: auto; }
+
+            /* Flagship reverts to a standard card so six divide evenly */
+            .service-card--featured {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align:
 
         .service-cta {
             background: var(--red);
