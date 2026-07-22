@@ -12,12 +12,12 @@
     <title>Nall's Specialized Hauling | Heavy Haul, Flatbed & Specialized Transport</title>
     <meta name="description" content="Nall's Specialized Hauling provides heavy haul, flatbed, step deck, dry van, expedited, and specialized freight transport from Elizabethtown, Kentucky across the lower 48 states.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.nallsspecializedhauling.com/Home/">
+    <link rel="canonical" href="https://www.nallsspecializedhauling.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nall's Specialized Hauling">
     <meta property="og:title" content="Nall's Specialized Hauling | Heavy Haul, Flatbed & Specialized Transport">
     <meta property="og:description" content="Nall's Specialized Hauling provides heavy haul, flatbed, step deck, dry van, expedited, and specialized freight transport from Elizabethtown, Kentucky across the lower 48 states.">
-    <meta property="og:url" content="https://www.nallsspecializedhauling.com/Home/">
+    <meta property="og:url" content="https://www.nallsspecializedhauling.com/">
     <meta property="og:image" content="https://www.nallsspecializedhauling.com/Home/assets/images/nasa-truck.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nall's Specialized Hauling | Heavy Haul, Flatbed & Specialized Transport">
@@ -46,7 +46,7 @@
                         "postalCode": "42701",
                         "addressCountry": "US"
                 },
-                "areaServed": "United States",
+                "areaServed": "Contiguous United States",
                 "sameAs": [
                         "https://www.facebook.com/nallsspecializedhauling/",
                         "https://x.com/nallstrucking"
@@ -65,8 +65,8 @@
         {
                 "@context": "https://schema.org",
                 "@type": "WebPage",
-                "@id": "https://www.nallsspecializedhauling.com/Home/#webpage",
-                "url": "https://www.nallsspecializedhauling.com/Home/",
+                "@id": "https://www.nallsspecializedhauling.com/#webpage",
+                "url": "https://www.nallsspecializedhauling.com/",
                 "name": "Nall's Specialized Hauling | Heavy Haul, Flatbed & Specialized Transport",
                 "description": "Nall's Specialized Hauling provides heavy haul, flatbed, step deck, dry van, expedited, and specialized freight transport from Elizabethtown, Kentucky across the lower 48 states.",
                 "isPartOf": {
@@ -79,7 +79,7 @@
         {
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
-                "@id": "https://www.nallsspecializedhauling.com/Home/#faq",
+                "@id": "https://www.nallsspecializedhauling.com/#faq",
                 "mainEntity": [
                         {
                                 "@type": "Question",
@@ -115,13 +115,7 @@
                                 "@type": "ListItem",
                                 "position": 1,
                                 "name": "Home",
-                                "item": "https://www.nallsspecializedhauling.com/Home/"
-                        },
-                        {
-                                "@type": "ListItem",
-                                "position": 2,
-                                "name": "Home",
-                                "item": "https://www.nallsspecializedhauling.com/Home/"
+                                "item": "https://www.nallsspecializedhauling.com/"
                         }
                 ]
         }
@@ -371,7 +365,9 @@
             overflow-y: auto;
         }
 
-        .mobile-drawer.open {
+        .mobile-drawer.open,
+        .site-drawer.is-open,
+        .site-drawer[aria-hidden="false"] {
             transform: translateX(0);
             visibility: visible;
             transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -397,7 +393,9 @@
             transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s;
         }
 
-        .mobile-drawer.open .drawer-nav a {
+        .mobile-drawer.open .drawer-nav a,
+        .site-drawer.is-open .drawer-nav a,
+        .site-drawer[aria-hidden="false"] .drawer-nav a {
             opacity: 1;
             transform: translateX(0);
         }
@@ -894,7 +892,37 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                text-align:
+                text-align: center;
+                padding: 34px 22px;
+            }
+
+            .service-card--featured .service-icon {
+                width: 64px;
+                height: 64px;
+                margin: 0 auto 20px;
+            }
+
+            .service-card--featured p {
+                max-width: 26ch;
+                margin: 0 auto;
+            }
+
+            .service-card__cta {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 520px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         .service-cta {
             background: var(--red);
@@ -1377,65 +1405,40 @@
             transition: all 0.3s;
             border-radius: 2px;
         }
-<ul class="services-grid">
 
-            <!-- FLAGSHIP -->
-            <li class="service-card service-card--featured">
-                <img class="service-icon"
-                     src="assets/icons/specialized-haul.svg"
-                     alt=""
-                     aria-hidden="true"
-                     width="76" height="76" loading="lazy" decoding="async">
-                <div class="service-card__body">
-                    <span class="service-eyebrow">Flagship Capability</span>
-                    <h3>Specialized Haul</h3>
-                    <p>Heavy, oversized, and critical-load transport backed by licensed pilot cars, custom rigging, and permitted routing. The loads most carriers turn down.</p>
-                </div>
-                <a class="service-card__cta" href="#quote">Get a Specialized Quote</a>
-            </li>
+        .social-link:hover,
+        .social-link:focus-visible {
+            background: var(--red);
+            border-color: var(--red);
+            color: var(--white);
+        }
 
-            <li class="service-card">
-                <img class="service-icon" src="assets/icons/expedited.svg" alt="" aria-hidden="true"
-                     width="64" height="64" loading="lazy" decoding="async">
-                <h3>Expedited</h3>
-                <p>Rush deliveries for time-sensitive loads requiring priority handling.</p>
-            </li>
+        .skip-link {
+            position: fixed;
+            top: 8px;
+            left: 8px;
+            z-index: 2000;
+            padding: 10px 14px;
+            background: var(--white);
+            color: var(--black);
+            font-weight: 700;
+            transform: translateY(-150%);
+        }
 
-            <li class="service-card">
-                <img class="service-icon" src="assets/icons/dry-van.svg" alt="" aria-hidden="true"
-                     width="64" height="64" loading="lazy" decoding="async">
-                <h3>Dry Van</h3>
-                <p>53-foot enclosed trailers for general freight and protected cargo.</p>
-            </li>
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-            <li class="service-card">
-                <img class="service-icon" src="assets/icons/temperature-controlled.svg" alt="" aria-hidden="true"
-                     width="64" height="64" loading="lazy" decoding="async">
-                <h3>Temperature Controlled</h3>
-                <p>Climate-controlled reefer trailers for perishable goods.</p>
-            </li>
-
-            <li class="service-card">
-                <img class="service-icon" src="assets/icons/flatbed.svg" alt="" aria-hidden="true"
-                     width="64" height="64" loading="lazy" decoding="async">
-                <h3>Flatbed</h3>
-                <p>Open deck trailers for construction materials, steel, and oversized cargo.</p>
-            </li>
-
-            <li class="service-card">
-                <img class="service-icon" src="assets/icons/step-deck.svg" alt="" aria-hidden="true"
-                     width="64" height="64" loading="lazy" decoding="async">
-                <h3>Step Deck</h3>
-                <p>Drop-deck trailers for tall equipment and specialized freight.</p>
-            </li>
-
-        </ul>
     <!-- STICKY HEADER -->
-        <header class="site-header">
-        <a href="../Home/" class="site-brand" aria-label="Nall's Specialized Hauling home">
+    <header class="site-header">
+        <a href="../Home/" class="site-brand brand" aria-label="Nall's Specialized Hauling home">
             <img src="../assets/images/transparent-logo.png" alt="Nall's Specialized Hauling">
         </a>
-        <nav class="site-primary-nav" aria-label="Primary">
+        <nav class="site-primary-nav primary-nav" aria-label="Primary">
             <a href="./" aria-current="page">Home</a>
             <a href="../About/">About</a>
             <a href="../Safety/">Safety</a>
@@ -1443,19 +1446,19 @@
             <a href="../Specialized/">Specialized</a>
             <a href="../Staff/">Staff</a>
         </nav>
-        <div class="site-header-actions">
-            <a href="tel:2703600070" class="site-phone">270-360-0070</a>
-            <a href="#quote" class="site-quote">Request Quote</a>
-            <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-mobile-menu" aria-label="Open navigation menu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+        <div class="site-header-actions header-right">
+            <a href="tel:2703600070" class="site-phone tel-link">270-360-0070</a>
+            <a href="#quote" class="site-quote cta-btn">Request Quote</a>
+            <button class="site-menu-toggle nav-toggle" type="button" aria-expanded="false" aria-controls="site-mobile-menu" aria-label="Open navigation menu">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
             </button>
         </div>
     </header>
 
-    <div class="site-drawer" id="site-mobile-menu" aria-hidden="true">
-        <nav class="site-mobile-nav" aria-label="Mobile">
+    <div class="site-drawer mobile-drawer" id="site-mobile-menu" aria-hidden="true">
+        <nav class="site-mobile-nav drawer-nav" aria-label="Mobile">
             <a href="./" aria-current="page">Home</a>
             <a href="../About/">About</a>
             <a href="../Safety/">Safety</a>
@@ -1463,10 +1466,10 @@
             <a href="../Specialized/">Specialized</a>
             <a href="../Staff/">Staff</a>
         </nav>
-        <div class="site-drawer-actions">
-            <a href="#quote" class="site-quote">Request Quote</a>
-            <a href="#drive" class="site-apply">Apply Now</a>
-            <a href="tel:2703600070" class="site-phone">270-360-0070</a>
+        <div class="site-drawer-actions drawer-footer">
+            <a href="#quote" class="site-quote cta-btn">Request Quote</a>
+            <a href="#drive" class="site-apply cta-btn cta-btn-outline">Apply Now</a>
+            <a href="tel:2703600070" class="site-phone tel-link">270-360-0070</a>
         </div>
     </div>
 
@@ -1479,7 +1482,6 @@
             <iframe
                 src="https://www.youtube.com/embed/zl0ToSn52ZE?autoplay=1&mute=1&loop=1&playlist=zl0ToSn52ZE&controls=0&showinfo=0&rel=0"
                 title="Background video"
-                frameborder="0"
                 allow="autoplay; fullscreen"
                 allowfullscreen>
             </iframe>
@@ -1539,38 +1541,48 @@
     <!-- SERVICES -->
     <section class="services" id="services">
         <h2 class="section-title">What We Haul</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <img class="service-icon" src="assets/icons/expedited.svg" alt="Expedited Icon">
+        <ul class="services-grid">
+            <li class="service-card service-card--featured">
+                <img class="service-icon" src="assets/icons/specialized-haul.svg" alt="" aria-hidden="true"
+                     width="76" height="76" loading="lazy" decoding="async">
+                <div class="service-card__body">
+                    <span class="service-eyebrow">Flagship Capability</span>
+                    <h3>Specialized Haul</h3>
+                    <p>Heavy, oversized, and critical-load transport backed by licensed pilot cars, custom rigging, and permitted routing. The loads most carriers turn down.</p>
+                </div>
+                <a class="service-card__cta" href="#quote">Get a Specialized Quote</a>
+            </li>
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/expedited.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
                 <h3>Expedited</h3>
                 <p>Rush deliveries for time-sensitive loads requiring priority handling.</p>
-            </div>
-            <div class="service-card">
-                <img class="service-icon" src="assets/icons/dry-van.svg" alt="Dry Van Icon">
+            </li>
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/dry-van.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
                 <h3>Dry Van</h3>
                 <p>53-foot enclosed trailers for general freight and protected cargo.</p>
-            </div>
-            <div class="service-card">
-                <img class="service-icon" src="assets/icons/temperature-controlled.svg" alt="Temperature Controlled Icon">
+            </li>
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/temperature-controlled.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
                 <h3>Temperature Controlled</h3>
                 <p>Climate-controlled reefer trailers for perishable goods (rented to select customers).</p>
-            </div>
-            <div class="service-card">
-                <img class="service-icon" src="assets/icons/flatbed.svg" alt="Flatbed Icon">
+            </li>
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/flatbed.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
                 <h3>Flatbed</h3>
                 <p>Open deck trailers for construction materials, steel, and oversized cargo.</p>
-            </div>
-            <div class="service-card">
-                <img class="service-icon" src="assets/icons/step-deck.svg" alt="Step Deck Icon">
+            </li>
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/step-deck.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
                 <h3>Step Deck</h3>
                 <p>Drop-deck trailers for tall equipment and specialized freight.</p>
-            </div>
-            <div class="service-card">
-                <img class="service-icon" src="assets/icons/specialized-haul.svg" alt="Specialized Haul Icon">
-                <h3>Specialized Haul</h3>
-                <p>Heavy, oversized, and critical-load transport with licensed pilots.</p>
-            </div>
-        </div>
+            </li>
+        </ul>
     </section>
 
     <!-- ABOUT -->
@@ -1603,9 +1615,10 @@
                 <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=738256" target="_blank" rel="noopener">View FMCSA Profile &rarr;</a>
             </div>
             <div class="safety-item">
-                <h3>CSA Score</h3>
-                <p class="safety-stat">Status: Pending Update</p>
-                <p>Our safety management system prioritizes driver training, vehicle maintenance, and compliance monitoring. CSA score update coming shortly.</p>
+                <h3>FMCSA Safety Rating</h3>
+                <p class="safety-stat">Current as of: 07/20/2026</p>
+                <p class="safety-stat">Rating: Satisfactory</p>
+                <p>An FMCSA Satisfactory safety rating is the highest official designation a motor carrier can receive, verifying that adequate safety controls are in place to meet federal standards. It is determined following an on-site or remote Compliance Review.</p>
             </div>
             <div class="safety-item">
                 <h3>Insurance & Bonding</h3>
@@ -1758,27 +1771,13 @@
             </div>
         </div>
         <div class="socials">
-            <a href="https://www.facebook.com/nallsspecializedhauling/" target="_blank" class="social-link">f</a>
-            <a href="https://x.com/nallstrucking" target="_blank" class="social-link">𝕏</a>
-            <a href="https://share.google.com" target="_blank" class="social-link">G</a>
+            <a href="https://www.facebook.com/nallsspecializedhauling/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nall's Specialized Hauling on Facebook">f</a>
+            <a href="https://x.com/nallstrucking" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nall's Specialized Hauling on X">𝕏</a>
+            <a href="https://share.google/RmqJGUQtyVe5dZjp6" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nall's Specialized Hauling on Google">G</a>
         </div>
         <p style="margin-top: 30px; color: var(--gray);">&copy; 1996&ndash;2026 Nall's Specialized Hauling, Inc. | USDOT 738256 | All Rights Reserved | Website by <a href="mailto:me@caseykeown.com">me@caseykeown.com</a></p>
     </footer>
 
-    <script>
-        // IntersectionObserver for capacity counters
-        const capacityItems = document.querySelectorAll('.capacity-item');
-        const capacityObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    capacityObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        capacityItems.forEach(item => capacityObserver.observe(item));
-    </script>
     <script src="../assets/site-nav.js" defer></script>
 </body>
 </html>
