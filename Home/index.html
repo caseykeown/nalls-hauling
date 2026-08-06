@@ -12,12 +12,12 @@
     <title>Nall's Specialized Hauling | Heavy Haul, Flatbed & Specialized Transport</title>
     <meta name="description" content="Nall's Specialized Hauling provides heavy haul, flatbed, step deck, dry van, expedited, and specialized freight transport from Elizabethtown, Kentucky across the lower 48 states.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.nallsspecializedhauling.com/Home/">
+    <link rel="canonical" href="https://www.nallsspecializedhauling.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nall's Specialized Hauling">
     <meta property="og:title" content="Nall's Specialized Hauling | Heavy Haul, Flatbed & Specialized Transport">
     <meta property="og:description" content="Nall's Specialized Hauling provides heavy haul, flatbed, step deck, dry van, expedited, and specialized freight transport from Elizabethtown, Kentucky across the lower 48 states.">
-    <meta property="og:url" content="https://www.nallsspecializedhauling.com/Home/">
+    <meta property="og:url" content="https://www.nallsspecializedhauling.com/">
     <meta property="og:image" content="https://www.nallsspecializedhauling.com/Home/assets/images/nasa-truck.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nall's Specialized Hauling | Heavy Haul, Flatbed & Specialized Transport">
@@ -46,7 +46,7 @@
                         "postalCode": "42701",
                         "addressCountry": "US"
                 },
-                "areaServed": "United States",
+                "areaServed": "Contiguous United States",
                 "sameAs": [
                         "https://www.facebook.com/nallsspecializedhauling/",
                         "https://x.com/nallstrucking"
@@ -65,8 +65,8 @@
         {
                 "@context": "https://schema.org",
                 "@type": "WebPage",
-                "@id": "https://www.nallsspecializedhauling.com/Home/#webpage",
-                "url": "https://www.nallsspecializedhauling.com/Home/",
+                "@id": "https://www.nallsspecializedhauling.com/#webpage",
+                "url": "https://www.nallsspecializedhauling.com/",
                 "name": "Nall's Specialized Hauling | Heavy Haul, Flatbed & Specialized Transport",
                 "description": "Nall's Specialized Hauling provides heavy haul, flatbed, step deck, dry van, expedited, and specialized freight transport from Elizabethtown, Kentucky across the lower 48 states.",
                 "isPartOf": {
@@ -79,7 +79,7 @@
         {
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
-                "@id": "https://www.nallsspecializedhauling.com/Home/#faq",
+                "@id": "https://www.nallsspecializedhauling.com/#faq",
                 "mainEntity": [
                         {
                                 "@type": "Question",
@@ -115,13 +115,7 @@
                                 "@type": "ListItem",
                                 "position": 1,
                                 "name": "Home",
-                                "item": "https://www.nallsspecializedhauling.com/Home/"
-                        },
-                        {
-                                "@type": "ListItem",
-                                "position": 2,
-                                "name": "Home",
-                                "item": "https://www.nallsspecializedhauling.com/Home/"
+                                "item": "https://www.nallsspecializedhauling.com/"
                         }
                 ]
         }
@@ -241,6 +235,154 @@
         .brand:focus-visible {
             outline: 2px solid var(--white);
             outline-offset: 3px;
+        }
+
+        /* ---- Hamburger toggle ---- */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            width: 48px;
+            height: 48px;
+            padding: 12px 10px;
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .nav-toggle .bar {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: var(--white);
+            transition: transform 0.3s ease, opacity 0.2s ease;
+        }
+
+        .nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+            background: var(--red);
+        }
+
+        .nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+            background: var(--red);
+        }
+
+        .nav-toggle:focus-visible {
+            outline: 2px solid var(--white);
+            outline-offset: 2px;
+        }
+
+        /* ---- Mobile drawer ---- */
+        .mobile-drawer {
+            position: fixed;
+            top: var(--header-h);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--black);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 28px 36px;
+            transform: translateX(100%);
+            visibility: hidden;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.35s;
+            overflow-y: auto;
+        }
+
+        .mobile-drawer.open,
+        .site-drawer.is-open,
+        .site-drawer[aria-hidden="false"] {
+            transform: translateX(0);
+            visibility: visible;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .drawer-nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .drawer-nav a {
+            font-family: 'Oswald', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--off-white);
+            text-decoration: none;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--charcoal);
+            opacity: 0;
+            transform: translateX(24px);
+            transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s;
+        }
+
+        .mobile-drawer.open .drawer-nav a,
+        .site-drawer.is-open .drawer-nav a,
+        .site-drawer[aria-hidden="false"] .drawer-nav a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mobile-drawer.open .drawer-nav a:nth-child(1) { transition-delay: 0.05s; }
+        .mobile-drawer.open .drawer-nav a:nth-child(2) { transition-delay: 0.1s; }
+        .mobile-drawer.open .drawer-nav a:nth-child(3) { transition-delay: 0.15s; }
+        .mobile-drawer.open .drawer-nav a:nth-child(4) { transition-delay: 0.2s; }
+        .mobile-drawer.open .drawer-nav a:nth-child(5) { transition-delay: 0.25s; }
+        .mobile-drawer.open .drawer-nav a:nth-child(6) { transition-delay: 0.3s; }
+
+        .drawer-nav a:hover,
+        .drawer-nav a:focus-visible {
+            color: var(--red);
+        }
+
+        .drawer-nav a[aria-current="page"] {
+            color: var(--red);
+            border-bottom-color: var(--red);
+        }
+
+        .drawer-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding-top: 32px;
+        }
+
+        .drawer-footer .cta-btn {
+            text-align: center;
+            padding: 16px;
+            font-size: 14px;
+        }
+
+        .drawer-footer .tel-link {
+            text-align: center;
+            font-size: 17px;
+            padding: 8px;
+            color: var(--silver);
+        }
+
+        body.nav-open {
+            overflow: hidden;
+        }
+
+        /* ---- Header collapse ---- */
+        @media (max-width: 1160px) {
+            .primary-nav,
+            .header-right .cta-btn {
+                display: none;
+            }
+            .nav-toggle {
+                display: flex;
+            }
         }
 
         @media (max-width: 768px) {
@@ -459,27 +601,58 @@
             letter-spacing: 2px;
         }
 
+        /* ============================================
+           SERVICES / WHAT WE HAUL
+           ============================================ */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 20px;
+            max-width: 1240px;
             margin: 0 auto;
+            padding: 0;
+            list-style: none;
         }
 
+        /* ---- Base card: 5 across on the second row ---- */
         .service-card {
+            grid-column: span 2;
             background: var(--charcoal);
-            padding: 30px;
-            text-align: center;
             border: 1px solid var(--dark-gray);
-            transition: all 0.3s;
+            padding: 34px 22px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             position: relative;
+            isolation: isolate;
+            transition: border-color .25s ease,
+                        transform .25s ease,
+                        box-shadow .25s ease;
         }
 
-        .service-card:hover {
+        /* Red rule that wipes in on hover */
+        .service-card::before {
+            content: "";
+            position: absolute;
+            inset: -1px -1px auto -1px;
+            height: 3px;
+            background: var(--red);
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform .3s ease;
+        }
+
+        .service-card:hover,
+        .service-card:focus-within {
             border-color: var(--red);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(200, 10, 12, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 18px 45px rgba(200, 10, 12, .22);
+        }
+
+        .service-card:hover::before,
+        .service-card:focus-within::before {
+            transform: scaleX(1);
         }
 
         .service-icon {
@@ -493,18 +666,152 @@
 
         .service-card h3 {
             font-family: 'Oswald', sans-serif;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             color: var(--white);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
+            letter-spacing: 1.4px;
+            line-height: 1.25;
+            margin: 0 0 12px;
+            /* Locks 1-line and 2-line headings to the same baseline
+               so "Temperature Controlled" stops shoving its body copy down */
+            min-height: 2.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .service-card p {
-            font-size: 12px;
+            font-size: 12.5px;
+            line-height: 1.6;
             color: var(--gray);
-            line-height: 1.5;
+            margin: 0 auto;
+            max-width: 26ch;
+        }
+
+        /* ---- Flagship band: Specialized Haul ---- */
+        .service-card--featured {
+            grid-column: span 10;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 34px;
+            text-align: left;
+            padding: 32px 40px;
+            background:
+                linear-gradient(90deg,
+                    rgba(200, 10, 12, .16) 0%,
+                    rgba(200, 10, 12, 0) 58%),
+                var(--charcoal);
+        }
+
+        .service-card--featured::after {
+            content: "";
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            bottom: -1px;
+            width: 4px;
+            background: var(--red);
+        }
+
+        .service-card--featured .service-icon {
+            width: 76px;
+            height: 76px;
+            margin: 0;
+            opacity: 1;
+        }
+
+        .service-eyebrow {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 6px;
+        }
+
+        .service-card--featured h3 {
+            display: block;
+            min-height: 0;
+            font-size: 24px;
+            letter-spacing: 2.5px;
+            margin: 0 0 8px;
+        }
+
+        .service-card--featured p {
+            font-size: 14px;
+            color: var(--silver);
+            max-width: 64ch;
+            margin: 0;
+        }
+
+        .service-card__cta {
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--red);
+            border: 2px solid var(--red);
+            padding: 14px 26px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background .25s ease, color .25s ease;
+        }
+
+        .service-card__cta:hover,
+        .service-card__cta:focus-visible {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        /* ---- Breakpoints: 3x2, then 2x3, then 1x6 ---- */
+        @media (max-width: 1180px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+
+            .service-card,
+            .service-card--featured { grid-column: auto; }
+
+            /* Flagship reverts to a standard card so six divide evenly */
+            .service-card--featured {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                padding: 34px 22px;
+            }
+
+            .service-card--featured .service-icon {
+                width: 64px;
+                height: 64px;
+                margin: 0 auto 20px;
+            }
+
+            .service-card--featured p {
+                max-width: 26ch;
+                margin: 0 auto;
+            }
+
+            .service-card__cta {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 520px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .service-cta {
@@ -890,43 +1197,80 @@
             padding: 60px 20px;
         }
 
-        .testimonial-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        /* DRIVER TESTIMONIALS */
+.testimonials {
+    background: var(--charcoal);
+    padding: 60px 20px;
+}
 
-        .testimonial-card {
-            background: var(--black);
-            padding: 30px;
-            border-left: 4px solid var(--red);
-            position: relative;
-        }
+.testimonial-grid {
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
 
-        .testimonial-text {
-            font-size: 14px;
-            color: var(--off-white);
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
+.testimonial-card {
+    background: var(--black);
+    padding: 40px 34px 30px;
+    border-left: 4px solid var(--red);
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        .testimonial-author {
-            font-family: 'Oswald', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+.testimonial-card::before {
+    content: "\201C";
+    position: absolute;
+    top: 4px;
+    left: 26px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 76px;
+    line-height: 1;
+    color: var(--red);
+    opacity: 0.22;
+    pointer-events: none;
+}
 
-        .testimonial-role {
-            font-size: 11px;
-            color: var(--gray);
-            margin-top: 5px;
-        }
+.testimonial-text {
+    position: relative;
+    font-size: 19px;
+    color: var(--off-white);
+    line-height: 1.55;
+    margin: 0 0 22px;
+    font-style: italic;
+    quotes: none;
+}
+
+.testimonial-author {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-style: normal;
+}
+
+.testimonial-role {
+    display: block;
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 5px;
+}
+
+@media (max-width: 860px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-text {
+        font-size: 17px;
+    }
+}
 
         /* FOOTER */
         footer {
@@ -989,43 +1333,39 @@
             border-radius: 2px;
         }
 
-        .social-link:hover {
+        .social-link:hover,
+        .social-link:focus-visible {
             background: var(--red);
-            color: var(--white);
             border-color: var(--red);
+            color: var(--white);
         }
 
-        @media (max-width: 768px) {
-            .bonus-badge {
-                transform: rotate(0deg);
-            }
-            .driver-tagline {
-                font-size: 28px;
-            }
-            .driver-subheading {
-                font-size: 16px;
-            }
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .requirements-split {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .apply-methods {
-                grid-template-columns: 1fr;
-            }
+        .skip-link {
+            position: fixed;
+            top: 8px;
+            left: 8px;
+            z-index: 2000;
+            padding: 10px 14px;
+            background: var(--white);
+            color: var(--black);
+            font-weight: 700;
+            transform: translateY(-150%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
         }
     </style>
-    <link rel="stylesheet" href="../assets/site-nav.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <!-- STICKY HEADER -->
-        <header class="site-header">
-        <a href="../Home/" class="site-brand" aria-label="Nall's Specialized Hauling home">
+    <header class="site-header">
+        <a href="../Home/" class="site-brand brand" aria-label="Nall's Specialized Hauling home">
             <img src="../assets/images/transparent-logo.png" alt="Nall's Specialized Hauling">
         </a>
-        <nav class="site-primary-nav" aria-label="Primary">
+        <nav class="site-primary-nav primary-nav" aria-label="Primary">
             <a href="./" aria-current="page">Home</a>
             <a href="../About/">About</a>
             <a href="../Safety/">Safety</a>
@@ -1033,19 +1373,19 @@
             <a href="../Specialized/">Specialized</a>
             <a href="../Staff/">Staff</a>
         </nav>
-        <div class="site-header-actions">
-            <a href="tel:2703600070" class="site-phone">270-360-0070</a>
-            <a href="#quote" class="site-quote">Request Quote</a>
-            <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-mobile-menu" aria-label="Open navigation menu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+        <div class="site-header-actions header-right">
+            <a href="tel:2703600070" class="site-phone tel-link">270-360-0070</a>
+            <a href="#quote" class="site-quote cta-btn">Request Quote</a>
+            <button class="site-menu-toggle nav-toggle" type="button" aria-expanded="false" aria-controls="site-mobile-menu" aria-label="Open navigation menu">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
             </button>
         </div>
     </header>
 
-    <div class="site-drawer" id="site-mobile-menu" aria-hidden="true">
-        <nav class="site-mobile-nav" aria-label="Mobile">
+    <div class="site-drawer mobile-drawer" id="site-mobile-menu" aria-hidden="true">
+        <nav class="site-mobile-nav drawer-nav" aria-label="Mobile">
             <a href="./" aria-current="page">Home</a>
             <a href="../About/">About</a>
             <a href="../Safety/">Safety</a>
@@ -1053,10 +1393,10 @@
             <a href="../Specialized/">Specialized</a>
             <a href="../Staff/">Staff</a>
         </nav>
-        <div class="site-drawer-actions">
-            <a href="#quote" class="site-quote">Request Quote</a>
-            <a href="https://intelliapp.driverapponline.com/m/spechaul" class="site-apply" target="_blank" rel="noopener noreferrer">Apply Now</a>
-            <a href="tel:2703600070" class="site-phone">270-360-0070</a>
+        <div class="site-drawer-actions drawer-footer">
+            <a href="#quote" class="site-quote cta-btn">Request Quote</a>
+            <a href="#drive" class="site-apply cta-btn cta-btn-outline">Apply Now</a>
+            <a href="tel:2703600070" class="site-phone tel-link">270-360-0070</a>
         </div>
     </div>
 
@@ -1069,7 +1409,6 @@
             <iframe
                 src="https://www.youtube.com/embed/zl0ToSn52ZE?autoplay=1&mute=1&loop=1&playlist=zl0ToSn52ZE&controls=0&showinfo=0&rel=0"
                 title="Background video"
-                frameborder="0"
                 allow="autoplay; fullscreen"
                 allowfullscreen>
             </iframe>
@@ -1085,11 +1424,6 @@
         </div>
     </section>
 
-    <!-- DISPATCH STATUS -->
-    <div class="dispatch-status">
-        <span class="dispatch-dot" aria-hidden="true"></span>
-        ACTIVE | USDOT 738256 | 125 POWER UNITS | 400 TRAILERS | LOWER 48 STATES
-    </div>
 
     <!-- CAPACITY CLUSTER -->
     <section class="capacity-cluster">
@@ -1117,43 +1451,48 @@
     <!-- SERVICES -->
     <section class="services" id="services">
         <h2 class="section-title">What We Haul</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <img class="service-icon" src="../assets/svg-icons/double-drop-extendable.png" alt="Double-drop extendable trailer carrying oversized industrial equipment" loading="lazy" decoding="async">
-                <h3>Double Drop Extendable</h3>
-                <p>Lowered, extendable decks for tall and extra-long over-dimensional freight.</p>
-            </div>
-            <div class="service-card">
-                <img class="service-icon" src="../assets/svg-icons/expedited-specialized.png" alt="Heavy-haul truck transporting an urgent oversized load" loading="lazy" decoding="async">
+        <ul class="services-grid">
+            <li class="service-card service-card--featured">
+                <img class="service-icon" src="assets/icons/specialized-haul.svg" alt="" aria-hidden="true"
+                     width="76" height="76" loading="lazy" decoding="async">
+                <div class="service-card__body">
+                    <span class="service-eyebrow">Flagship Capability</span>
+                    <h3>Specialized Haul</h3>
+                    <p>Heavy, oversized, and critical-load transport backed by licensed pilot cars, custom rigging, and permitted routing. The loads most carriers turn down.</p>
+                </div>
+                <a class="service-card__cta" href="#quote">Get a Specialized Quote</a>
+            </li>
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/expedited.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
                 <h3>Expedited</h3>
                 <p>Rush deliveries for time-sensitive loads requiring priority handling.</p>
-            </div>
-            <div class="service-card">
-                <img class="service-icon" src="../assets/svg-icons/dry-van.png" alt="Tractor pulling an enclosed dry van trailer" loading="lazy" decoding="async">
+            </li>
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/dry-van.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
                 <h3>Dry Van</h3>
                 <p>53-foot enclosed trailers for general freight and protected cargo.</p>
-            </div>
-            <div class="service-card">
-                <img class="service-icon" src="../assets/svg-icons/temperature-controlled.png" alt="Refrigerated trailer with a temperature-control unit" loading="lazy" decoding="async">
+            </li>
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/temperature-controlled.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
                 <h3>Temperature Controlled</h3>
                 <p>Climate-controlled reefer trailers for perishable goods (rented to select customers).</p>
-            </div>
-            <div class="service-card">
-                <img class="service-icon" src="../assets/svg-icons/flatbed.png" alt="Flatbed trailer carrying secured steel and construction materials" loading="lazy" decoding="async">
+            </li>
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/flatbed.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
                 <h3>Flatbed</h3>
                 <p>Open deck trailers for construction materials, steel, and oversized cargo.</p>
-            </div>
-            <div class="service-card">
-                <img class="service-icon" src="../assets/svg-icons/step-deck.png" alt="Step-deck trailer carrying tall industrial machinery" loading="lazy" decoding="async">
+            </li>
+            <li class="service-card">
+                <img class="service-icon" src="assets/icons/step-deck.svg" alt="" aria-hidden="true"
+                     width="64" height="64" loading="lazy" decoding="async">
                 <h3>Step Deck</h3>
                 <p>Drop-deck trailers for tall equipment and specialized freight.</p>
-            </div>
-            <div class="service-card">
-                <img class="service-icon" src="../assets/svg-icons/specialized-haul.png" alt="Multi-axle heavy-haul trailer transporting critical industrial equipment" loading="lazy" decoding="async">
-                <h3>Specialized Haul</h3>
-                <p>Heavy, oversized, and critical-load transport with licensed pilots.</p>
-            </div>
-        </div>
+            </li>
+        </ul>
     </section>
 
     <!-- ABOUT -->
@@ -1186,9 +1525,10 @@
                 <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=738256" target="_blank" rel="noopener">View FMCSA Profile &rarr;</a>
             </div>
             <div class="safety-item">
-                <h3>CSA Score</h3>
-                <p class="safety-stat">Status: Pending Update</p>
-                <p>Our safety management system prioritizes driver training, vehicle maintenance, and compliance monitoring. CSA score update coming shortly.</p>
+                <h3>FMCSA Safety Rating</h3>
+                <p class="safety-stat">Current as of: 07/20/2026</p>
+                <p class="safety-stat">Rating: Satisfactory</p>
+                <p>An FMCSA Satisfactory safety rating is the highest official designation a motor carrier can receive, verifying that adequate safety controls are in place to meet federal standards. It is determined following an on-site or remote Compliance Review.</p>
             </div>
             <div class="safety-item">
                 <h3>Insurance & Bonding</h3>
@@ -1198,19 +1538,23 @@
         </div>
     </section>
 
-    <!-- DRIVER RECRUITMENT - FLYER INTENSITY -->
-    <section class="driver-recruitment" id="drive">
-        <div class="driver-content">
-            <!-- SIGN-ON BONUS BADGE -->
-            <div class="driver-header">
-                <div class="bonus-badge">
-                    <div class="amount">$7,500</div>
-                    <div class="label">Sign-On Bonus</div>
-                    <div class="note">*Paid monthly over first year</div>
-                </div>
-                <h2 class="driver-tagline">Drive with a company that <span class="highlight">values you</span></h2>
-                <p class="driver-subheading">Home every weekend | Competitive pay | Real respect</p>
-            </div>
+   <!-- APPLY SECTION -->
+<div class="apply-section">
+    <h3 class="apply-heading">Ready to Drive with the Best?</h3>
+    <p class="apply-lede">Applications are handled through our recruiting system. Have your CDL and employment history ready before you start.</p>
+    <a class="apply-primary" href="APPLY_URL" target="_blank" rel="noopener">Start Your Application</a>
+    <p class="apply-secondary-label">Prefer to talk to someone first?</p>
+    <div class="apply-methods">
+        <div class="apply-method">
+            <h4>Email Recruiting</h4>
+            <a href="mailto:jobs@nallsspecializedhauling.com">jobs@nallsspecializedhauling.com</a>
+        </div>
+        <div class="apply-method">
+            <h4>Call or Text</h4>
+            <a href="tel:2703600070">270-360-0070</a>
+        </div>
+    </div>
+</div>
 
             <!-- BENEFITS GRID -->
             <div class="benefits-grid">
@@ -1242,41 +1586,27 @@
 
             <!-- REQUIREMENTS SECTION -->
             <div class="requirements-split">
-                <div class="requirements-col">
-                    <h3>Requirements</h3>
-                    <ul>
-                        <li>Class A CDL</li>
-                        <li>Clean MVR (Motor Vehicle Record)</li>
-                        <li>2+ years driving experience</li>
-                        <li>Must be reliable and safety-focused</li>
-                    </ul>
-                </div>
-                <div class="requirements-col">
-                    <h3>We Haul It All</h3>
-                    <ul>
-                        <li>Dry van & flatbed</li>
-                        <li>Step deck & heavy haul</li>
-                        <li>Oversized & critical loads</li>
-                        <li>Regional & OTR routes available</li>
-                    </ul>
-                </div>
-            </div>
-
+               <!-- DRIVER TESTIMONIALS -->
+<section class="testimonials" aria-labelledby="driver-testimonials-heading">
+    <h2 class="section-title" id="driver-testimonials-heading">What Drivers Say</h2>
+    <div class="testimonial-grid">
+        <figure class="testimonial-card">
+            <blockquote class="testimonial-text">I&rsquo;ve been with Nall&rsquo;s for 23 years, I&rsquo;ve always been treated like family.</blockquote>
+            <figcaption class="testimonial-author">Darren Wardrip</figcaption>
+        </figure>
+        <figure class="testimonial-card">
+            <blockquote class="testimonial-text">Nall&rsquo;s, where family still means something.</blockquote>
+            <figcaption class="testimonial-author">William Ellis</figcaption>
+        </figure>
+    </div>
+</section>
             <!-- APPLY SECTION -->
             <div class="apply-section">
                 <h3 class="apply-heading">Ready to Drive with the Best?</h3>
                 <div class="apply-methods">
                     <div class="apply-method">
-                        <h4>Company Drivers</h4>
-                        <a href="https://land.driverapponline.com/spechaul?feature=gen" target="_blank" rel="noopener noreferrer">View Opportunities</a>
-                    </div>
-                    <div class="apply-method">
-                        <h4>Lead Application</h4>
-                        <a href="https://intelliapp.driverapponline.com/m/spechaul" target="_blank" rel="noopener noreferrer">Start Application</a>
-                    </div>
-                    <div class="apply-method">
-                        <h4>Full Application</h4>
-                        <a href="https://intelliapp.driverapponline.com/c/spechaul" target="_blank" rel="noopener noreferrer">Complete Application</a>
+                        <h4>Email Application</h4>
+                        <a href="mailto:tharrison@spechaul.com">Human Resources</a>
                     </div>
                     <div class="apply-method">
                         <h4>Application Questions</h4>
@@ -1287,25 +1617,6 @@
         </div>
     </section>
 
-    <!-- DRIVER TESTIMONIALS -->
-    <section class="testimonials">
-        <h2 class="section-title">What Drivers Say</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-text">"The guys at Nall's actually care about their drivers. You're not just a dispatch number. The equipment is solid, the pay is fair, and they mean it when they say you're home every weekend for regional."</div>
-                <div class="testimonial-author">Marcus T.</div>
-                <div class="testimonial-role">Regional Driver, 8 years OTR experience</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-text">"Made the switch from a big carrier and immediately noticed the difference. Support is real, the trucks are newer, and management actually listens to driver feedback. That $7,500 bonus didn't hurt either."</div>
-                <div class="testimonial-author">John R.</div>
-                <div class="testimonial-role">Dedicated Driver, 12 years in trucking</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-text">"Respect goes both ways here. They treat you right, the loads are steady, and I actually know my dispatch manager by name. That's the kind of company I wanted to drive for."</div>
-                <div class="testimonial-author">David M.</div>
-                <div class="testimonial-role">Specialized Haul Driver, 5 years with NSH</div>
-            </div>
         </div>
     </section>
         <section class="seo-faq" aria-labelledby="quick-answers-heading">
@@ -1350,27 +1661,13 @@
             </div>
         </div>
         <div class="socials">
-            <a href="https://www.facebook.com/nallsspecializedhauling/" target="_blank" class="social-link">f</a>
-            <a href="https://x.com/nallstrucking" target="_blank" class="social-link">𝕏</a>
-            <a href="https://share.google.com" target="_blank" class="social-link">G</a>
+            <a href="https://www.facebook.com/nallsspecializedhauling/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nall's Specialized Hauling on Facebook">f</a>
+            <a href="https://x.com/nallstrucking" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nall's Specialized Hauling on X">𝕏</a>
+            <a href="https://share.google/RmqJGUQtyVe5dZjp6" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nall's Specialized Hauling on Google">G</a>
         </div>
         <p style="margin-top: 30px; color: var(--gray);">&copy; 1996&ndash;2026 Nall's Specialized Hauling, Inc. | USDOT 738256 | All Rights Reserved | Website by <a href="mailto:me@caseykeown.com">me@caseykeown.com</a></p>
     </footer>
 
-    <script>
-        // IntersectionObserver for capacity counters
-        const capacityItems = document.querySelectorAll('.capacity-item');
-        const capacityObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    capacityObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        capacityItems.forEach(item => capacityObserver.observe(item));
-    </script>
     <script src="../assets/site-nav.js" defer></script>
 </body>
 </html>
