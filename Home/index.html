@@ -1307,43 +1307,80 @@
             padding: 60px 20px;
         }
 
-        .testimonial-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        /* DRIVER TESTIMONIALS */
+.testimonials {
+    background: var(--charcoal);
+    padding: 60px 20px;
+}
 
-        .testimonial-card {
-            background: var(--black);
-            padding: 30px;
-            border-left: 4px solid var(--red);
-            position: relative;
-        }
+.testimonial-grid {
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
 
-        .testimonial-text {
-            font-size: 14px;
-            color: var(--off-white);
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
+.testimonial-card {
+    background: var(--black);
+    padding: 40px 34px 30px;
+    border-left: 4px solid var(--red);
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        .testimonial-author {
-            font-family: 'Oswald', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+.testimonial-card::before {
+    content: "\201C";
+    position: absolute;
+    top: 4px;
+    left: 26px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 76px;
+    line-height: 1;
+    color: var(--red);
+    opacity: 0.22;
+    pointer-events: none;
+}
 
-        .testimonial-role {
-            font-size: 11px;
-            color: var(--gray);
-            margin-top: 5px;
-        }
+.testimonial-text {
+    position: relative;
+    font-size: 19px;
+    color: var(--off-white);
+    line-height: 1.55;
+    margin: 0 0 22px;
+    font-style: italic;
+    quotes: none;
+}
+
+.testimonial-author {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-style: normal;
+}
+
+.testimonial-role {
+    display: block;
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 5px;
+}
+
+@media (max-width: 860px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-text {
+        font-size: 17px;
+    }
+}
 
         /* FOOTER */
         footer {
@@ -1672,33 +1709,27 @@
 
             <!-- REQUIREMENTS SECTION -->
             <div class="requirements-split">
-                <div class="requirements-col">
-                    <h3>Requirements</h3>
-                    <ul>
-                        <li>Class A CDL</li>
-                        <li>Clean MVR (Motor Vehicle Record)</li>
-                        <li>2+ years driving experience</li>
-                        <li>Must be reliable and safety-focused</li>
-                    </ul>
-                </div>
-                <div class="requirements-col">
-                    <h3>We Haul It All</h3>
-                    <ul>
-                        <li>Dry van & flatbed</li>
-                        <li>Step deck & heavy haul</li>
-                        <li>Oversized & critical loads</li>
-                        <li>Regional & OTR routes available</li>
-                    </ul>
-                </div>
-            </div>
-
+               <!-- DRIVER TESTIMONIALS -->
+<section class="testimonials" aria-labelledby="driver-testimonials-heading">
+    <h2 class="section-title" id="driver-testimonials-heading">What Drivers Say</h2>
+    <div class="testimonial-grid">
+        <figure class="testimonial-card">
+            <blockquote class="testimonial-text">I&rsquo;ve been with Nall&rsquo;s for 23 years, I&rsquo;ve always been treated like family.</blockquote>
+            <figcaption class="testimonial-author">Darren Wardrip</figcaption>
+        </figure>
+        <figure class="testimonial-card">
+            <blockquote class="testimonial-text">Nall&rsquo;s, where family still means something.</blockquote>
+            <figcaption class="testimonial-author">William Ellis</figcaption>
+        </figure>
+    </div>
+</section>
             <!-- APPLY SECTION -->
             <div class="apply-section">
                 <h3 class="apply-heading">Ready to Drive with the Best?</h3>
                 <div class="apply-methods">
                     <div class="apply-method">
                         <h4>Email Application</h4>
-                        <a href="mailto:jobs@nallsspecializedhauling.com">jobs@nallsspecializedhauling.com</a>
+                        <a href="mailto:tharrison@spechaul.com">Human Resources</a>
                     </div>
                     <div class="apply-method">
                         <h4>Call or Text</h4>
@@ -1709,25 +1740,6 @@
         </div>
     </section>
 
-    <!-- DRIVER TESTIMONIALS -->
-    <section class="testimonials">
-        <h2 class="section-title">What Drivers Say</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-text">"The guys at Nall's actually care about their drivers. You're not just a dispatch number. The equipment is solid, the pay is fair, and they mean it when they say you're home every weekend for regional."</div>
-                <div class="testimonial-author">Marcus T.</div>
-                <div class="testimonial-role">Regional Driver, 8 years OTR experience</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-text">"Made the switch from a big carrier and immediately noticed the difference. Support is real, the trucks are newer, and management actually listens to driver feedback. That $7,500 bonus didn't hurt either."</div>
-                <div class="testimonial-author">John R.</div>
-                <div class="testimonial-role">Dedicated Driver, 12 years in trucking</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-text">"Respect goes both ways here. They treat you right, the loads are steady, and I actually know my dispatch manager by name. That's the kind of company I wanted to drive for."</div>
-                <div class="testimonial-author">David M.</div>
-                <div class="testimonial-role">Specialized Haul Driver, 5 years with NSH</div>
-            </div>
         </div>
     </section>
         <section class="seo-faq" aria-labelledby="quick-answers-heading">
