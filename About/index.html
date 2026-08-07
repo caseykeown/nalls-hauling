@@ -78,37 +78,6 @@
         },
         {
                 "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "@id": "https://www.nallsspecializedhauling.com/About/#faq",
-                "mainEntity": [
-                        {
-                                "@type": "Question",
-                                "name": "When was Nall's Specialized Hauling founded?",
-                                "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": "Nall's Specialized Hauling was founded in 1996 by Charles Nall."
-                                }
-                        },
-                        {
-                                "@type": "Question",
-                                "name": "Who owns Nall's Specialized Hauling?",
-                                "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": "Charles Nall is the owner and chief executive officer of Nall's Specialized Hauling."
-                                }
-                        },
-                        {
-                                "@type": "Question",
-                                "name": "What values guide Nall's Specialized Hauling?",
-                                "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": "The company emphasizes hard work, respect, dependability, safety, and doing the job the right way."
-                                }
-                        }
-                ]
-        },
-        {
-                "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
                 "itemListElement": [
                         {
@@ -316,13 +285,13 @@
             min-height: 650px;
             margin-top: var(--header-h, 64px);
             display: flex;
-            align-items: flex-end;
+            align-items: flex-start;
             overflow: hidden;
             background-image:
                 linear-gradient(90deg, rgba(9, 8, 8, 0.96) 0%, rgba(9, 8, 8, 0.76) 48%, rgba(9, 8, 8, 0.30) 100%),
                 linear-gradient(0deg, rgba(9, 8, 8, 0.96) 0%, transparent 50%),
                 url('assets/images/nasa-truck.jpg');
-            background-position: center;
+            background-position: center 30%;
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -345,7 +314,7 @@
             width: 100%;
             max-width: 1180px;
             margin: 0 auto;
-            padding: 0 20px 86px;
+            padding: 64px 20px 0;
         }
 
         .eyebrow {
@@ -400,8 +369,10 @@
 
         .anniversary-figure {
             position: relative;
+            width: 80%;
             margin: 0;
             padding: 12px;
+            justify-self: center;
             background: var(--black);
             border: 1px solid var(--dark-gray);
             box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
@@ -537,8 +508,25 @@
             text-transform: uppercase;
         }
 
+        .founder-photo {
+            width: calc(100% - 24px);
+            margin: 42px auto 8px;
+            transform: rotate(10deg);
+            transform-origin: center;
+            opacity: 0.88;
+            filter: saturate(0.9) contrast(0.96);
+            box-shadow: 0 22px 44px rgba(0, 0, 0, 0.5);
+        }
+
+        .founder-photo img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
         /* VALUES */
         .values-section {
+            padding-bottom: 70px;
             background: linear-gradient(180deg, var(--charcoal), var(--black));
             border-top: 1px solid var(--dark-gray);
         }
@@ -646,7 +634,7 @@
 
         /* DRIVER RECRUITMENT */
         .driver-section {
-            padding: 100px 20px;
+            padding: 78px 20px 100px;
             background:
                 radial-gradient(circle at 84% 24%, rgba(200, 10, 12, 0.18), transparent 28%),
                 var(--black);
@@ -740,6 +728,18 @@
             background: transparent;
             border-color: var(--white);
             color: var(--white);
+            animation: drive-cta-pulse 1.15s ease-in-out infinite;
+        }
+
+        @keyframes drive-cta-pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.28);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 28px 8px rgba(255, 255, 255, 0.72);
+                transform: scale(1.035);
+            }
         }
 
         /* FOOTER */
@@ -803,7 +803,13 @@
             .story-layout,
             .driver-inner,
             .anniversary-inner { grid-template-columns: 1fr; gap: 48px; }
-            .anniversary-figure { max-width: 620px; margin: 0 auto; }
+            .about-hero {
+                min-height: 700px;
+                background-position: 43% 30%;
+            }
+            .about-hero-inner { padding-top: 42px; }
+            .about-hero h1 { max-width: 720px; font-size: clamp(46px, 9vw, 70px); }
+            .anniversary-figure { max-width: 496px; margin: 0 auto; }
             .story-aside { position: static; }
             .values-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
@@ -893,10 +899,12 @@
 
         @media (max-width: 768px) {
             header .logo img { height: 34px; }
-            .about-hero { min-height: 540px; background-position: 62% center; }
-            .about-hero-inner { padding-bottom: 58px; }
+            .about-hero { min-height: 740px; background-position: 43% top; }
+            .about-hero-inner { padding: 30px 20px 0; }
             .anniversary-section { padding: 68px 20px; }
             .section { padding: 70px 20px; }
+            .values-section { padding-bottom: 56px; }
+            .driver-section { padding-top: 60px; }
             .footer-grid { grid-template-columns: 1fr; gap: 28px; }
         }
 
@@ -904,6 +912,7 @@
             .header-right { grid-template-columns: 1fr; }
             .header-right .tel-link { grid-column: 1; }
             .about-hero p { font-size: 15px; }
+            .about-hero h1 { font-size: 44px; }
             .values-grid,
             .driver-benefits { grid-template-columns: 1fr; }
             .value-card { min-height: 220px; }
@@ -1010,6 +1019,13 @@
                     <span class="quote-mark" aria-hidden="true">&ldquo;</span>
                     <blockquote>Treat the janitor with the same respect you give the CEO.</blockquote>
                     <p>A principle that still shapes the company today</p>
+                    <figure class="founder-photo">
+                        <img src="assets/images/charles-nall.png"
+                             alt="Nall’s Specialized Hauling founder Charles Nall of Hardin County, KY"
+                             width="1513"
+                             height="1040"
+                             loading="lazy">
+                    </figure>
                 </aside>
             </div>
         </section>
@@ -1076,25 +1092,6 @@
                 <h2>Ready to put your experience to work?</h2>
                 <p>Join a company built by hard work, sustained by dependability, and committed to treating people with respect.</p>
                 <a href="https://land.driverapponline.com/spechaul?feature=gen" class="cta-btn" target="_blank" rel="noopener noreferrer">Drive For Us!</a>
-            </div>
-        </section>
-        <section class="seo-faq" aria-labelledby="quick-answers-heading">
-            <div class="seo-faq-inner">
-                <h2 id="quick-answers-heading">Quick Answers</h2>
-                <div class="seo-faq-grid">
-                    <article>
-                        <h3>When was Nall's Specialized Hauling founded?</h3>
-                        <p>Nall's Specialized Hauling was founded in 1996 by Charles Nall.</p>
-                    </article>
-                    <article>
-                        <h3>Who owns Nall's Specialized Hauling?</h3>
-                        <p>Charles Nall is the owner and chief executive officer of Nall's Specialized Hauling.</p>
-                    </article>
-                    <article>
-                        <h3>What values guide Nall's Specialized Hauling?</h3>
-                        <p>The company emphasizes hard work, respect, dependability, safety, and doing the job the right way.</p>
-                    </article>
-                </div>
             </div>
         </section>
     </main>

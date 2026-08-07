@@ -405,43 +405,6 @@
             50% { opacity: 0.4; }
         }
 
-        /* CAPACITY CLUSTER */
-        .capacity-cluster {
-            background: var(--black);
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .capacity-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .capacity-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .capacity-number {
-            font-family: 'Oswald', sans-serif;
-            font-size: 44px;
-            font-weight: 700;
-            color: var(--red);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .capacity-label {
-            font-size: 13px;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
         /* SERVICES GRID */
         .services {
             background: linear-gradient(180deg, var(--charcoal) 0%, var(--black) 100%);
@@ -465,6 +428,18 @@
             gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        @media (min-width: 1100px) {
+            .services-grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .service-card {
+                flex: 0 0 calc((100% - 100px) / 5);
+            }
         }
 
         .service-card {
@@ -891,18 +866,20 @@
         }
 
         .testimonial-grid {
-            max-width: 1200px;
+            max-width: 820px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
         }
 
         .testimonial-card {
+            min-height: 190px;
             background: var(--black);
-            padding: 30px;
+            padding: 38px 44px;
             border-left: 4px solid var(--red);
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
         }
 
         .testimonial-text {
@@ -926,6 +903,13 @@
             font-size: 11px;
             color: var(--gray);
             margin-top: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .testimonial-card {
+                min-height: 220px;
+                padding: 32px 24px;
+            }
         }
 
         /* FOOTER */
@@ -1091,29 +1075,6 @@
         ACTIVE | USDOT 738256 | 125 POWER UNITS | 400 TRAILERS | LOWER 48 STATES
     </div>
 
-    <!-- CAPACITY CLUSTER -->
-    <section class="capacity-cluster">
-        <h2 class="section-title">Fleet Capacity</h2>
-        <div class="capacity-grid">
-            <div class="capacity-item">
-                <div class="capacity-number">125+</div>
-                <div class="capacity-label">Power Units</div>
-            </div>
-            <div class="capacity-item">
-                <div class="capacity-number">400+</div>
-                <div class="capacity-label">Specialized Trailers</div>
-            </div>
-            <div class="capacity-item">
-                <div class="capacity-number">30+</div>
-                <div class="capacity-label">Years in Business</div>
-            </div>
-            <div class="capacity-item">
-                <div class="capacity-number">48</div>
-                <div class="capacity-label">States Covered</div>
-            </div>
-        </div>
-    </section>
-
     <!-- SERVICES -->
     <section class="services" id="services">
         <h2 class="section-title">What We Haul</h2>
@@ -1186,9 +1147,9 @@
                 <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=738256" target="_blank" rel="noopener">View FMCSA Profile &rarr;</a>
             </div>
             <div class="safety-item">
-                <h3>CSA Score</h3>
-                <p class="safety-stat">Status: Pending Update</p>
-                <p>Our safety management system prioritizes driver training, vehicle maintenance, and compliance monitoring. CSA score update coming shortly.</p>
+                <h3>Carrier Safety Rating</h3>
+                <p class="safety-stat">Satisfactory</p>
+                <p>The highest official designation issued to a motor carrier by the Federal Motor Carrier Safety Administration.</p>
             </div>
             <div class="safety-item">
                 <h3>Insurance & Bonding</h3>
@@ -1291,20 +1252,10 @@
     <section class="testimonials">
         <h2 class="section-title">What Drivers Say</h2>
         <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-text">"The guys at Nall's actually care about their drivers. You're not just a dispatch number. The equipment is solid, the pay is fair, and they mean it when they say you're home every weekend for regional."</div>
-                <div class="testimonial-author">Marcus T.</div>
-                <div class="testimonial-role">Regional Driver, 8 years OTR experience</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-text">"Made the switch from a big carrier and immediately noticed the difference. Support is real, the trucks are newer, and management actually listens to driver feedback. That $7,500 bonus didn't hurt either."</div>
-                <div class="testimonial-author">John R.</div>
-                <div class="testimonial-role">Dedicated Driver, 12 years in trucking</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-text">"Respect goes both ways here. They treat you right, the loads are steady, and I actually know my dispatch manager by name. That's the kind of company I wanted to drive for."</div>
-                <div class="testimonial-author">David M.</div>
-                <div class="testimonial-role">Specialized Haul Driver, 5 years with NSH</div>
+            <div class="testimonial-card" id="rotating-testimonial">
+                <div class="testimonial-text" id="testimonial-text">&ldquo;I&rsquo;ve been with Nalls for 23 years, I&rsquo;ve always been treated like family.&rdquo;</div>
+                <div class="testimonial-author" id="testimonial-author">Darren Wardrip</div>
+                <div class="testimonial-role" id="testimonial-role">Dedicated Nall&rsquo;s Employee</div>
             </div>
         </div>
     </section>
@@ -1358,19 +1309,44 @@
     </footer>
 
     <script>
-        // IntersectionObserver for capacity counters
-        const capacityItems = document.querySelectorAll('.capacity-item');
-        const capacityObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    capacityObserver.unobserve(entry.target);
+        (function () {
+            var driverTestimonials = [
+                {
+                    quote: '“I’ve been with Nalls for 23 years, I’ve always been treated like family.”',
+                    author: 'Darren Wardrip',
+                    role: 'Dedicated Nall’s Employee'
+                },
+                {
+                    quote: '“Nalls, where family still means something.”',
+                    author: 'William Ellis',
+                    role: 'Nall’s Employee'
+                },
+                {
+                    quote: '“This is the best trucking company you could ever work for!”',
+                    author: 'You',
+                    role: 'If you apply'
                 }
-            });
-        });
 
-        capacityItems.forEach(item => capacityObserver.observe(item));
+                // ADD ADDITIONAL DRIVER TESTIMONIALS HERE.
+                // Add a comma after the previous entry, then copy its quote/author/role format.
+            ];
+
+            var quote = document.getElementById('testimonial-text');
+            var author = document.getElementById('testimonial-author');
+            var role = document.getElementById('testimonial-role');
+            var currentTestimonial = 0;
+
+            if (!quote || !author || !role || driverTestimonials.length < 2) return;
+
+            window.setInterval(function () {
+                currentTestimonial = (currentTestimonial + 1) % driverTestimonials.length;
+                quote.textContent = driverTestimonials[currentTestimonial].quote;
+                author.textContent = driverTestimonials[currentTestimonial].author;
+                role.textContent = driverTestimonials[currentTestimonial].role;
+            }, 3000);
+        }());
     </script>
+
     <script src="../assets/site-nav.js" defer></script>
 </body>
 </html>

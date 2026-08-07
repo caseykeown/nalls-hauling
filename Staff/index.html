@@ -37,7 +37,7 @@
                 "logo": "https://www.nallsspecializedhauling.com/assets/images/transparent-logo.png",
                 "foundingDate": "1996-06-05",
                 "telephone": "+1-270-360-0070",
-                "email": "Tnall@spechaul.com",
+                "email": "tnall@spechaul.com",
                 "address": {
                         "@type": "PostalAddress",
                         "streetAddress": "4880 Bardstown Road",
@@ -94,7 +94,7 @@
                                 "name": "Who handles quote requests at Nall's?",
                                 "acceptedAnswer": {
                                         "@type": "Answer",
-                                        "text": "Quote requests can be sent to Tyler Nall at Tnall@spechaul.com or Charles Nall at Cnall@spechaul.com."
+                                        "text": "Quote requests can be sent to Tyler Nall at tnall@spechaul.com or Charles Nall at cnall@spechaul.com."
                                 }
                         },
                         {
@@ -380,6 +380,9 @@
             border-top: 3px solid var(--red);
             display: flex;
             flex-direction: column;
+            color: inherit;
+            cursor: pointer;
+            text-decoration: none;
             transition: border-color 0.25s, transform 0.25s;
         }
 
@@ -416,7 +419,40 @@
             text-decoration: none;
         }
 
-        .staff-email:hover { text-decoration: underline; }
+        .staff-card:hover .staff-email { text-decoration: underline; }
+
+        .email-dialog {
+            width: min(440px, calc(100vw - 32px));
+            margin: auto;
+            padding: 0;
+            background: var(--charcoal);
+            border: 2px solid var(--red);
+            color: var(--off-white);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.72);
+        }
+
+        .email-dialog::backdrop { background: rgba(9, 8, 8, 0.78); }
+
+        .email-dialog-inner { padding: 30px; }
+
+        .email-dialog h2 {
+            margin-bottom: 12px;
+            color: var(--white);
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .email-dialog p { color: var(--silver); line-height: 1.7; }
+        .email-dialog strong { color: var(--white); }
+
+        .email-dialog-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 24px;
+        }
 
         /* CONTACT BAND */
         .contact-band {
@@ -620,16 +656,16 @@
                         <h2 id="leadership-heading">Executive Leadership</h2>
                     </div>
                     <div class="staff-grid">
-                        <article class="staff-card">
+                        <a class="staff-card" href="mailto:cnall@spechaul.com" data-email-name="Charles Nall">
                             <h3>Charles Nall</h3>
                             <p class="staff-role">Owner &amp; Chief Executive Officer</p>
-                            <a class="staff-email" href="mailto:Cnall@spechaul.com">Cnall@spechaul.com</a>
-                        </article>
-                        <article class="staff-card">
+                            <span class="staff-email">cnall@spechaul.com</span>
+                        </a>
+                        <a class="staff-card" href="mailto:tnall@spechaul.com" data-email-name="Tyler Nall">
                             <h3>Tyler Nall</h3>
                             <p class="staff-role">Vice President &amp; Chief Operating Officer</p>
-                            <a class="staff-email" href="mailto:Tnall@spechaul.com">Tnall@spechaul.com</a>
-                        </article>
+                            <span class="staff-email">tnall@spechaul.com</span>
+                        </a>
                     </div>
                 </section>
 
@@ -638,21 +674,21 @@
                         <h2 id="admin-heading">Administration &amp; Safety</h2>
                     </div>
                     <div class="staff-grid">
-                        <article class="staff-card">
+                        <a class="staff-card" href="mailto:dbrewer@spechaul.com" data-email-name="Debbie Brewer">
                             <h3>Debbie Brewer</h3>
                             <p class="staff-role">Accounts Manager</p>
-                            <a class="staff-email" href="mailto:Dbrewer@spechaul.com">Dbrewer@spechaul.com</a>
-                        </article>
-                        <article class="staff-card">
+                            <span class="staff-email">dbrewer@spechaul.com</span>
+                        </a>
+                        <a class="staff-card" href="mailto:tharrison@spechaul.com" data-email-name="Tracy Harrison">
                             <h3>Tracy Harrison</h3>
                             <p class="staff-role">Safety &amp; HR Director</p>
-                            <a class="staff-email" href="mailto:tharrison@spechaul.com">tharrison@spechaul.com</a>
-                        </article>
-                        <article class="staff-card">
+                            <span class="staff-email">tharrison@spechaul.com</span>
+                        </a>
+                        <a class="staff-card" href="mailto:abates@spechaul.com" data-email-name="Amy Bates">
                             <h3>Amy Bates</h3>
                             <p class="staff-role">Accounting Clerk</p>
-                            <a class="staff-email" href="mailto:Abates@spechaul.com">Abates@spechaul.com</a>
-                        </article>
+                            <span class="staff-email">abates@spechaul.com</span>
+                        </a>
                     </div>
                 </section>
 
@@ -661,21 +697,21 @@
                         <h2 id="operations-heading">Operations</h2>
                     </div>
                     <div class="staff-grid">
-                        <article class="staff-card">
+                        <a class="staff-card" href="mailto:enall@spechaul.com" data-email-name="Eddy Nall">
                             <h3>Eddy Nall</h3>
                             <p class="staff-role">Operations Manager</p>
-                            <a class="staff-email" href="mailto:Enall@spechaul.com">Enall@spechaul.com</a>
-                        </article>
-                        <article class="staff-card">
+                            <span class="staff-email">enall@spechaul.com</span>
+                        </a>
+                        <a class="staff-card" href="mailto:smunn@spechaul.com" data-email-name="Sarah Munn">
                             <h3>Sarah Munn</h3>
                             <p class="staff-role">Operations</p>
-                            <a class="staff-email" href="mailto:Smunn@spechaul.com">Smunn@spechaul.com</a>
-                        </article>
-                        <article class="staff-card">
+                            <span class="staff-email">smunn@spechaul.com</span>
+                        </a>
+                        <a class="staff-card" href="mailto:bcollins@spechaul.com" data-email-name="Brandon Collins">
                             <h3>Brandon Collins</h3>
                             <p class="staff-role">Operations</p>
-                            <a class="staff-email" href="mailto:Bcollins@spechaul.com">Bcollins@spechaul.com</a>
-                        </article>
+                            <span class="staff-email">bcollins@spechaul.com</span>
+                        </a>
                     </div>
                 </section>
 
@@ -684,16 +720,16 @@
                         <h2 id="shop-heading">Shop</h2>
                     </div>
                     <div class="staff-grid">
-                        <article class="staff-card">
+                        <a class="staff-card" href="mailto:bvertrees@spechaul.com" data-email-name="Brent Vertrees">
                             <h3>Brent Vertrees</h3>
                             <p class="staff-role">Shop Foreman</p>
-                            <a class="staff-email" href="mailto:Bvertrees@spechaul.com">Bvertrees@spechaul.com</a>
-                        </article>
-                        <article class="staff-card">
+                            <span class="staff-email">bvertrees@spechaul.com</span>
+                        </a>
+                        <a class="staff-card" href="mailto:cdrury@spechaul.com" data-email-name="Chris Drury">
                             <h3>Chris Drury</h3>
                             <p class="staff-role">Trailer Shop Manager</p>
-                            <a class="staff-email" href="mailto:Cdrury@spechaul.com">Cdrury@spechaul.com</a>
-                        </article>
+                            <span class="staff-email">cdrury@spechaul.com</span>
+                        </a>
                     </div>
                 </section>
             </div>
@@ -705,7 +741,7 @@
                 <p>Call the main office or email Tyler Nall and your message will be directed to the right person.</p>
                 <div class="contact-actions">
                     <a href="tel:2703600070" class="cta-btn">Call 270-360-0070</a>
-                    <a href="mailto:Tnall@spechaul.com" class="cta-btn cta-btn-outline">Email Tyler Nall</a>
+                    <a href="mailto:tnall@spechaul.com" class="cta-btn cta-btn-outline">Email Tyler Nall</a>
                 </div>
             </div>
         </section>
@@ -719,7 +755,7 @@
                     </article>
                     <article>
                         <h3>Who handles quote requests at Nall's?</h3>
-                        <p>Quote requests can be sent to Tyler Nall at Tnall@spechaul.com or Charles Nall at Cnall@spechaul.com.</p>
+                        <p>Quote requests can be sent to Tyler Nall at tnall@spechaul.com or Charles Nall at cnall@spechaul.com.</p>
                     </article>
                     <article>
                         <h3>Where is the Nall's office?</h3>
@@ -739,8 +775,8 @@
             </div>
             <div>
                 <h4>Shippers &amp; Quotes</h4>
-                <p><a href="mailto:Tnall@spechaul.com">Tnall@spechaul.com</a></p>
-                <p><a href="mailto:Cnall@spechaul.com">Cnall@spechaul.com</a></p>
+                <p><a href="mailto:tnall@spechaul.com">tnall@spechaul.com</a></p>
+                <p><a href="mailto:cnall@spechaul.com">cnall@spechaul.com</a></p>
             </div>
             <div>
                 <h4>Drivers</h4>
@@ -755,6 +791,17 @@
         <p style="margin-top: 30px; color: var(--gray);">&copy; 1996&ndash;2026 Nall's Specialized Hauling, Inc. | USDOT 738256 | All Rights Reserved | Website by <a href="mailto:me@caseykeown.com">me@caseykeown.com</a></p>
     </footer>
 
+    <dialog class="email-dialog" id="email-confirm-dialog" aria-labelledby="email-confirm-title">
+        <div class="email-dialog-inner">
+            <h2 id="email-confirm-title">Send an email?</h2>
+            <p>Would you like to send an email to <strong id="email-confirm-recipient"></strong>?</p>
+            <div class="email-dialog-actions">
+                <button type="button" class="cta-btn cta-btn-outline" id="email-confirm-no">No</button>
+                <button type="button" class="cta-btn" id="email-confirm-yes">Yes</button>
+            </div>
+        </div>
+    </dialog>
+
     <script>
         (function () {
             var header = document.querySelector('header');
@@ -766,6 +813,45 @@
             window.addEventListener('resize', setHeaderHeight);
             window.addEventListener('load', setHeaderHeight);
             if ('ResizeObserver' in window) new ResizeObserver(setHeaderHeight).observe(header);
+        }());
+
+        (function () {
+            var dialog = document.getElementById('email-confirm-dialog');
+            var recipient = document.getElementById('email-confirm-recipient');
+            var yesButton = document.getElementById('email-confirm-yes');
+            var noButton = document.getElementById('email-confirm-no');
+            var cards = document.querySelectorAll('a.staff-card[href^="mailto:"]');
+            var pendingEmail = '';
+
+            cards.forEach(function (card) {
+                card.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    pendingEmail = card.href;
+                    recipient.textContent = card.dataset.emailName;
+
+                    if (typeof dialog.showModal === 'function') {
+                        dialog.showModal();
+                        noButton.focus();
+                    } else if (window.confirm('Would you like to send an email to ' + card.dataset.emailName + '?')) {
+                        window.location.href = pendingEmail;
+                    }
+                });
+            });
+
+            yesButton.addEventListener('click', function () {
+                var email = pendingEmail;
+                dialog.close();
+                if (email) window.location.href = email;
+            });
+
+            noButton.addEventListener('click', function () {
+                pendingEmail = '';
+                dialog.close();
+            });
+
+            dialog.addEventListener('close', function () {
+                pendingEmail = '';
+            });
         }());
     </script>
     <script src="../assets/site-nav.js" defer></script>
