@@ -287,13 +287,29 @@
             display: flex;
             align-items: flex-start;
             overflow: hidden;
-            background-image:
+            background: var(--black);
+        }
+
+        .about-hero-video {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            pointer-events: none;
+        }
+
+        .about-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
                 linear-gradient(90deg, rgba(9, 8, 8, 0.96) 0%, rgba(9, 8, 8, 0.76) 48%, rgba(9, 8, 8, 0.30) 100%),
-                linear-gradient(0deg, rgba(9, 8, 8, 0.96) 0%, transparent 50%),
-                url('assets/images/nasa-truck.jpg');
-            background-position: center 30%;
-            background-repeat: no-repeat;
-            background-size: cover;
+                linear-gradient(0deg, rgba(9, 8, 8, 0.96) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .about-hero::before {
@@ -306,11 +322,12 @@
             font-size: clamp(110px, 19vw, 280px);
             font-weight: 700;
             line-height: 1;
+            z-index: 2;
         }
 
         .about-hero-inner {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             width: 100%;
             max-width: 1180px;
             margin: 0 auto;
@@ -803,10 +820,8 @@
             .story-layout,
             .driver-inner,
             .anniversary-inner { grid-template-columns: 1fr; gap: 48px; }
-            .about-hero {
-                min-height: 700px;
-                background-position: 43% 30%;
-            }
+            .about-hero { min-height: 700px; }
+            .about-hero-video { object-position: 43% 30%; }
             .about-hero-inner { padding-top: 42px; }
             .about-hero h1 { max-width: 720px; font-size: clamp(46px, 9vw, 70px); }
             .anniversary-figure { max-width: 496px; margin: 0 auto; }
@@ -899,7 +914,8 @@
 
         @media (max-width: 768px) {
             header .logo img { height: 34px; }
-            .about-hero { min-height: 740px; background-position: 43% top; }
+            .about-hero { min-height: 740px; }
+            .about-hero-video { object-position: 43% top; }
             .about-hero-inner { padding: 30px 20px 0; }
             .anniversary-section { padding: 68px 20px; }
             .section { padding: 70px 20px; }
@@ -967,6 +983,9 @@
 
     <main id="main-content">
         <section class="about-hero">
+            <video class="about-hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+                <source src="assets/images/CAK_3395_VP9.webm" type="video/webm">
+            </video>
             <div class="about-hero-inner">
                 <span class="eyebrow">One Truck // One Dream // Thirty Years</span>
                 <h1>Built on hard work.<br><span>Driven by respect.</span></h1>
