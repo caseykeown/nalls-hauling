@@ -274,24 +274,13 @@
             overflow: hidden;
         }
 
-        .video-container iframe {
+        .video-container video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100vw;
-            height: 56.25vw;      /* 16:9 of viewport width */
-            min-height: 600px;    /* never shorter than the hero */
-            min-width: 1067px;    /* 16:9 of hero height */
-            border: 0;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             pointer-events: none;
-        }
-
-        @media (max-width: 768px) {
-            .video-container iframe {
-                min-height: 480px;
-                min-width: 854px;
-            }
         }
 
         .video_overlay {
@@ -1049,14 +1038,10 @@
     <!-- HERO WITH VIDEO -->
     <section class="hero" id="home">
         <div class="video-container">
-            <!-- PLACEHOLDER: Replace src with drone footage URL once available -->
-            <iframe
-                src="https://www.youtube.com/embed/zl0ToSn52ZE?autoplay=1&mute=1&loop=1&playlist=zl0ToSn52ZE&controls=0&showinfo=0&rel=0"
-                title="Background video"
-                frameborder="0"
-                allow="autoplay; fullscreen"
-                allowfullscreen>
-            </iframe>
+            <video autoplay muted loop playsinline preload="auto" poster="assets/images/nasa-truck.jpg" aria-hidden="true">
+                <source src="assets/hero-video/Fly%20Over%202_VP9.webm" type="video/webm">
+                <source src="assets/hero-video/Fly%20Over%202_h.264.mp4" type="video/mp4">
+            </video>
         </div>
         <div class="video_overlay"></div>
         <div class="hero-content">
